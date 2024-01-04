@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.h2-homepage{
+    text-align: center;
+    font-size: 15px ;
+    background-color: rgb(202, 98, 98);
+    padding: 8px;
+    font-family: 'Rock Salt', cursive;
+    margin: 0; 
+}
+
+
+
+.contenedor-carrosuel img {
+    max-height: 800px; 
+    object-fit: cover;
+  }
+  

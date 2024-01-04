@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import "../Css/Homepage.css"
-import NavbarC from '../Componentes/NavbarC'
 import CarruselC from '../Componentes/CarruselC'
 import axiosUrl from '../helps/axiosBase'
+import SliderC from '../Componentes/SliderC'
+import "../Css/NavbarC.css"
+import NavbarC from '../Componentes/NavbarC'
 
 
 
@@ -31,11 +33,18 @@ const HomePage = () => {
 
   return (
   <>
-  <p className='h2-homepage'>Bienvenidos a Full Rock</p>
+  <p className='h2-homepage'>Full Rock</p>
   <NavbarC/>
   <div className='contenedor-carrosuel'>
   <CarruselC/>
   </div>
+  <div className='contenedor-carrosuel'>
+        {productos.length > 0 ? (
+          <SliderC productos={productos} />
+        ) : (
+          <p>Cargando productos...</p>
+        )}
+      </div>
   </>
   )
 }

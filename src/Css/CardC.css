@@ -1,0 +1,21 @@
+.card-body{
+    background-color: black;
+   
+}
+
+.card-body p{
+    color: yellow;
+    font-family: 'Rock Salt', cursive;
+}
+
+#title-id{
+    color: yellow;
+    font-family: 'Rubik Glitch', system-ui;
+}
+
+#style-card {
+    box-shadow: 0px 0px 10px rgb(251, 255, 0);
+    margin: 0;
+    padding: 0;
+}
+

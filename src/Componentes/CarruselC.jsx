@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import imagen1 from "../Images/GunsRoses.jpg";
 import imagen2 from "../Images/Nirvana.jpg";
 import imagen3 from "../Images/Queen.jpg";
-import "../Css/CarruselC.css"
+
 
 const CarruselC = () => {
   return (

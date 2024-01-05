@@ -33,7 +33,7 @@ const HomePage = () => {
 
   return (
   <>
-  <p className='h2-homepage'>Full Rock</p>
+  <h1 className='h2-homepage'>Tienda Full Rock</h1>
   <NavbarC/>
   <div className='contenedor-carrosuel'>
   <CarruselC/>

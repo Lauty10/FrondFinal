@@ -37,6 +37,7 @@ const LoginPage = () => {
 
   return (
     <>
+    <div className='login-fondo'>
     <NavbarC/>
     <div className='d-flex justify-content-center mt-5'>
     <Form className='mt-5 style-form'>
@@ -51,10 +52,11 @@ const LoginPage = () => {
       <Form.Control type="password"  onChange={loginChange} value={loginRock.passRock} placeholder="Ingrese una contraseña" name='passRock' />
     </Form.Group>
 
-    <Button className='button-style mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
+    <Button className='button-style mt-5 mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
       Iniciar Sesion
     </Button>
   </Form>
+  </div>
   </div>
   </>
   )

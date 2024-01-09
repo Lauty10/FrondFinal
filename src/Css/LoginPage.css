@@ -1,11 +1,21 @@
-.login-body {
+.login-fondo {
     background-repeat: no-repeat;
     background-size: 100% 100%; 
     background-size: cover;
     margin: 0; 
     padding: 0; 
     height: 100vh;
+    background-image: url(../Images//fondo1.jpg);
+    display: flex;
+    flex-direction: column; 
 }
+
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
 .text-style-login{
     font-family: 'Rock Salt', cursive;
@@ -39,7 +49,7 @@
 }
 
 @media(max-width:688px){
-    .h2-rock{
+    .h2-rock-login{
         font-family: 'Rock Salt', cursive;
         display: flex;
         justify-content: center;

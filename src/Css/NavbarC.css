@@ -34,10 +34,6 @@ width: 70px;
 .style-control{
    display: flex;
    justify-content: center;
-   padding-left: 15px;
-   padding-right: 15px;
-   padding-top: 10px;
-   padding-bottom: 10px;
 }
 
 

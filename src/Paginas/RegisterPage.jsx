@@ -3,9 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
 import NavbarC from '../Componentes/NavbarC';
-import "../Css/RegisterPage.css"
 import Soda from "../Images/SODA.JPG"
-
+import "../Css/RegisterPage.css"
 
 const RegisterPage = () => {
     const [formRegister,setFormRegister]=useState({
@@ -69,38 +68,39 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
   return (
  <>
  <NavbarC/>
- <div className='d-flex justify-content-center mt-5'>
-  <Form className='form-style my-5'>
-      <Form.Group className="mb-5" controlId="NombreInfo">
-        <Form.Label className='register-style'>Nombre</Form.Label>
-        <Form.Control type="text" value={formRegister.Nombre} onChange={registerChange} placeholder="Ingrese su Nombre" name='NombreRock' />
+ <div className='d-flex justify-content-center my-5'>
+   <Form className='form-style'>
+      <h2 className='h2-rock-register'>Registrarse</h2>
+      <Form.Group className="mb-3" controlId="NombreInfo">
+         <Form.Label className='register-style'>Nombre</Form.Label>
+         <Form.Control type="text" value={formRegister.Nombre} onChange={registerChange} placeholder="Ingrese su Nombre" name='NombreRock' />
       </Form.Group>
 
-      <Form.Group className="mb-5" controlId="nacionalidadInfo">
-        <Form.Label className='register-style'>Nacionalidad</Form.Label>
-        <Form.Control type="text" value={formRegister.Nacionalidad}  onChange={registerChange} placeholder="Ingrese su nacionalidad" name='NacionalidadRock' />
+      <Form.Group className="mb-3" controlId="nacionalidadInfo">
+         <Form.Label className='register-style'>Nacionalidad</Form.Label>
+         <Form.Control type="text" value={formRegister.Nacionalidad} onChange={registerChange} placeholder="Ingrese su nacionalidad" name='NacionalidadRock' />
       </Form.Group>
 
-      <Form.Group className="mb-5" controlId="correoInfo">
-        <Form.Label className='register-style'>Correo Electronico</Form.Label>
-        <Form.Control type="email" value={formRegister.Correo}  onChange={registerChange} placeholder="Ingrese su correo" name='CorreoRock' />
+      <Form.Group className="mb-3" controlId="correoInfo">
+         <Form.Label className='register-style'>Correo Electronico</Form.Label>
+         <Form.Control type="email" value={formRegister.Correo} onChange={registerChange} placeholder="Ingrese su correo" name='CorreoRock' />
       </Form.Group>
 
-      <Form.Group className="mb-5" controlId="passInfo">
-        <Form.Label className='register-style'>Contraseña</Form.Label>
-        <Form.Control type="password" value={formRegister.Contrasenia}  onChange={registerChange} placeholder="Ingrese una contraseña" name='ContraseniaRock' />
+      <Form.Group className="mb-3" controlId="passInfo">
+         <Form.Label className='register-style'>Contraseña</Form.Label>
+         <Form.Control type="password" value={formRegister.Contrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='ContraseniaRock' />
       </Form.Group>
 
-      <Form.Group className="mb-5" controlId="rPassInfo">
-        <Form.Label className='register-style'>Repetir Contraseña</Form.Label>
-        <Form.Control type="password" value={formRegister.Rcontrasenia}  onChange={registerChange} placeholder="Ingrese una contraseña" name='RcontraseniaRock' />
+      <Form.Group className="mb-3" controlId="rPassInfo">
+         <Form.Label className='register-style'>Repetir Contraseña</Form.Label>
+         <Form.Control type="password" value={formRegister.Rcontrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='RcontraseniaRock' />
       </Form.Group>
-
       <Button className='register-buttom mx-auto w-75' onClick={goRegister} variant="danger" type="submit">
-        Registrarse
+         Registrarse
       </Button>
-    </Form>
-    </div>
+   </Form>
+</div>
+
  </>
   )
 }

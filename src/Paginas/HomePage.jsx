@@ -8,8 +8,6 @@ import NavbarC from '../Componentes/NavbarC'
 import Accordion from 'react-bootstrap/Accordion';
 
 
-
-
 const HomePage = () => {
   
   const [productos,setProductos]=useState([])
@@ -24,7 +22,6 @@ const HomePage = () => {
  }
   }
 
-  
 
   useEffect(()=>{
    allGetProductos()
@@ -50,7 +47,7 @@ const HomePage = () => {
           <p>Cargando productos...</p>
         )}
       </div>
-      <Accordion className='definit-color' defaultActiveKey="0">
+      <Accordion className='definit-color' defaultActiveKey={null} >
       <Accordion.Item eventKey="0">
         <Accordion.Header className='mx-auto'><h2 className='me-auto h2-rock'>Rock en nuestras venas, y nuestra tienda!!</h2></Accordion.Header>
         <Accordion.Body className='p-rock'>

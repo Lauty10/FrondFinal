@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import NavbarC from '../Componentes/NavbarC';
+import "../Css/LoginPage.css"
 
 
 
@@ -36,21 +37,25 @@ const LoginPage = () => {
 
   return (
     <>
-    <Form>
+    <NavbarC/>
+    <div className='d-flex justify-content-center mt-5'>
+    <Form className='mt-5 style-form'>
+      <h2 className='h2-rock-login'>Iniciar Sesion</h2>
     <Form.Group className="mb-3" controlId="loginCorreo">
-      <Form.Label>Correo</Form.Label>
+      <Form.Label className='text-style-login' >Correo</Form.Label>
       <Form.Control type="email" onChange={loginChange} value={loginRock.correoRock}  placeholder="Ingrese su correo" name='correoRock'/>
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="loginPass">
-      <Form.Label>Contraseña</Form.Label>
+      <Form.Label className='text-style-login'>Contraseña</Form.Label>
       <Form.Control type="password"  onChange={loginChange} value={loginRock.passRock} placeholder="Ingrese una contraseña" name='passRock' />
     </Form.Group>
 
-    <Button onClick={loginRockUser} variant="primary" type="submit">
+    <Button className='button-style mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
       Iniciar Sesion
     </Button>
   </Form>
+  </div>
   </>
   )
 }

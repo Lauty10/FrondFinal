@@ -6,6 +6,7 @@ import "../Css/NavbarC.css"
 import NavbarC from '../Componentes/NavbarC'
 import Accordion from 'react-bootstrap/Accordion';
 import "../Css/HomePage.css"
+import FooterC from '../Componentes/FooterC'
 
 
 
@@ -74,7 +75,7 @@ const HomePage = () => {
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
-     
+     <FooterC/>
   </>
   )
 }

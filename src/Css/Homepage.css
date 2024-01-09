@@ -7,13 +7,13 @@
     text-align: center;
     font-size: 25px ;
     padding: 3px;
-    background-color: rgb(255, 251, 0);
+    background-color: rgb(255, 0, 0);
     font-family: 'Rubik Glitch', system-ui;
     margin: 0; 
 }
 
 .h2-homepage:hover{
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 

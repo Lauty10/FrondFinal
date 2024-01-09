@@ -3,6 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import NavbarC from '../Componentes/NavbarC';
 import "../Css/LoginPage.css"
+import Swal from 'sweetalert2'
+import Redondos from "../Images/REDONDOS.jpg"
+import FooterC from '../Componentes/FooterC';
 
 
 
@@ -30,8 +33,15 @@ const LoginPage = () => {
         }),
     })
     const date= await userLogin.json()
-    console.log(date)
-    
+    if (date) {
+      Swal.fire({
+        title: "Iniciando Sesion...",
+        text: "Los redondos una de las bandas mas convocantes de Argentina",
+        imageUrl: Redondos,
+        imageWidth: 400,
+        imageHeight: 200,
+      });
+    }
     }
 
 
@@ -58,6 +68,7 @@ const LoginPage = () => {
   </Form>
   </div>
   </div>
+  <FooterC/>
   </>
   )
 }

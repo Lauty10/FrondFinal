@@ -6,6 +6,7 @@ import NavbarC from '../Componentes/NavbarC';
 import Soda from "../Images/SODA.JPG"
 import "../Css/RegisterPage.css"
 import { Col, Container, Row } from 'react-bootstrap';
+import FooterC from '../Componentes/FooterC';
 
 const RegisterPage = () => {
     const [formRegister,setFormRegister]=useState({
@@ -109,6 +110,7 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
    </Row>
    </Container>
 </div>
+<FooterC/>
  </>
   )
 }

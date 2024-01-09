@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import "../Css/Homepage.css"
 import CarruselC from '../Componentes/CarruselC'
 import axiosUrl from '../helps/axiosBase'
 import SliderC from '../Componentes/SliderC'
 import "../Css/NavbarC.css"
 import NavbarC from '../Componentes/NavbarC'
 import Accordion from 'react-bootstrap/Accordion';
+import "../Css/HomePage.css"
+
 
 
 const HomePage = () => {

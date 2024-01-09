@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import NavbarC from '../Componentes/NavbarC';
 import Soda from "../Images/SODA.JPG"
 import "../Css/RegisterPage.css"
+import { Col, Container, Row } from 'react-bootstrap';
 
 const RegisterPage = () => {
     const [formRegister,setFormRegister]=useState({
@@ -67,9 +68,13 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
 
   return (
  <>
+ <div className='register-page-container'>
  <NavbarC/>
- <div className='d-flex justify-content-center my-5'>
-   <Form className='form-style'>
+ <Container>
+      <Row>
+         <Col sm={"12"}>
+         <div className='d-flex justify-content-center mt-5'>
+       <Form className='form-style'>
       <h2 className='h2-rock-register'>Registrarse</h2>
       <Form.Group className="mb-3" controlId="NombreInfo">
          <Form.Label className='register-style'>Nombre</Form.Label>
@@ -95,12 +100,15 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
          <Form.Label className='register-style'>Repetir Contraseña</Form.Label>
          <Form.Control type="password" value={formRegister.Rcontrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='RcontraseniaRock' />
       </Form.Group>
-      <Button className='register-buttom mx-auto w-75' onClick={goRegister} variant="danger" type="submit">
+      <Button className='register-buttom mt-5 mx-auto w-75' onClick={goRegister} variant="danger" type="submit">
          Registrarse
       </Button>
    </Form>
+      </div>
+    </Col>
+   </Row>
+   </Container>
 </div>
-
  </>
   )
 }

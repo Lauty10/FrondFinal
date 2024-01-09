@@ -5,6 +5,7 @@ import NavbarC from '../Componentes/NavbarC';
 import "../Css/LoginPage.css"
 import Swal from 'sweetalert2'
 import Redondos from "../Images/REDONDOS.jpg"
+import FooterC from '../Componentes/FooterC';
 
 
 
@@ -67,6 +68,7 @@ const LoginPage = () => {
   </Form>
   </div>
   </div>
+  <FooterC/>
   </>
   )
 }

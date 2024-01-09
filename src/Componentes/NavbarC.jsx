@@ -19,17 +19,18 @@ const NavbarC = () => {
         <Navbar.Toggle className='color-button' aria-controls="basic-navbar-nav" onClick={toggleSearch} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+          <div className='style-control'>
+              {barra && (
+                <FormControl
+                  type="text"
+                  placeholder="Busca en nuestra tienda.."
+                />
+              )}
+            </div>
             <Nav.Link href="#home" className='text-rock'>Inicio</Nav.Link>
             <Nav.Link href="#link" className='text-rock'>Sobre nosotros</Nav.Link>
             <Nav.Link href="#link" className='text-rock'>Contacto</Nav.Link>
           </Nav>
-          {barra && (
-            <FormControl
-              type="text"
-              placeholder="Buscar producto"
-              className="mr-sm-2"
-            />
-          )}
         </Navbar.Collapse>
       </Navbar>
     </>

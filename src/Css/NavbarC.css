@@ -14,8 +14,9 @@
 }
 
 .color-button {
-    color: white;
     background-color: white;
+    border: none;
+    margin-right: 5px;
 }
 
 .definit-color{
@@ -29,3 +30,17 @@ width: 70px;
  padding: 0;
  margin: 0;
 }
+
+.style-control{
+   display: flex;
+   justify-content: center;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+
+.navbar-toggler-icon {
+background-color: white;
+  }

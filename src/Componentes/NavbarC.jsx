@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import FormControl from 'react-bootstrap/FormControl';
-import logoImage from '../Images/Logo.jpg';
+import logoImage from '../Images/Logo.png';
 import '../Css/NavbarC.css';
 
 const NavbarC = () => {

@@ -6,6 +6,7 @@ import "../Css/LoginPage.css"
 import Swal from 'sweetalert2'
 import Redondos from "../Images/REDONDOS.jpg"
 import FooterC from '../Componentes/FooterC';
+import axiosUrl, { headboard } from '../helps/axiosBase';
 
 
 
@@ -22,18 +23,13 @@ const LoginPage = () => {
 
     const loginRockUser= async (ev)=>{
     ev.preventDefault()
-    const userLogin= await fetch("http://localhost:3001/usuarios/login",{
-        method:"POST",
-        headers:{
-            'content-type':'application/json',
-        },
-        body:JSON.stringify({
-            Correo: loginRock.correoRock,
-            Contrasenia:loginRock.passRock,
-        }),
-    })
-    const date= await userLogin.json()
-    if (date) {
+    const userLogin= await axiosUrl.post("/usuarios/login",{
+     Correo:loginRock.correoRock,
+     Contrasenia:loginRock.passRock
+    },headboard)
+    if (userLogin.data.Role==="user") {
+      sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
+      sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
       Swal.fire({
         title: "Iniciando Sesion...",
         text: "Los redondos una de las bandas mas convocantes de Argentina",
@@ -41,7 +37,21 @@ const LoginPage = () => {
         imageWidth: 400,
         imageHeight: 200,
       });
-    }
+      setTimeout(()=>{
+        location.href=("/user")
+      },3000)
+    }else{
+      sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
+      sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenido Administrador",
+        text: "Iniciando sesion...",
+      });
+      setTimeout(()=>{
+        location.href=("/admin")
+      },3000)
+    }  
     }
 
 

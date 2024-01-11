@@ -12,11 +12,13 @@ const NavbarC = () => {
     setBarra(!barra);
   };
 
-  const singOut = () => {
-    // Implementa la lógica para cerrar sesión
-    // Puede ser un llamado a tu API o limpiar la sessionStorage
-    console.log('Cerrar sesión...');
-  };
+  const sinOff=()=>{
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("role")
+    location.href="/"
+  }
+
+ 
 
   const token = JSON.parse(sessionStorage.getItem("token")) || "";
   const role = JSON.parse(sessionStorage.getItem("role")) || "";
@@ -39,10 +41,21 @@ const NavbarC = () => {
             <Nav.Link href="/" className='text-rock'>Inicio</Nav.Link>
             <Nav.Link href="/" className='text-rock'>Sobre nosotros</Nav.Link>
             <Nav.Link href="/" className='text-rock'>Contacto</Nav.Link>
-          </Nav>
+          {token && role==="admin" ? (
+            <>        
+            <Nav.Link href="/" className='text-rock'>Crear Producto</Nav.Link>
+            <Nav.Link href="/" className='text-rock'>Crear Usuario</Nav.Link>
+            </>
+          ):token && role==="user"(
+            <>        
+            <Nav.Link href="/" className='text-rock'>Favoritos</Nav.Link>
+            <Nav.Link href="/" className='text-rock'>Carrito</Nav.Link>
+            </>
+          )}
+        </Nav>
           {token && role ? (
             <Nav className='ms-auto me-1'>
-              <Nav.Link href="/#" className='data-name style-font'>Cerrar Sesion</Nav.Link>
+              <Nav.Link href="/#"  className='text-rock' onClick={sinOff}>Cerrar Sesion</Nav.Link>
             </Nav>
           ) : (
             <Nav className="ms-auto me-2">

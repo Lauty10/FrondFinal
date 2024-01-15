@@ -133,8 +133,8 @@ try {
               )}
             </div>
             <Nav.Link href="/" className='text-rock'>Inicio</Nav.Link>
-            <Nav.Link href="/" className='text-rock'>Sobre nosotros</Nav.Link>
-            <Nav.Link href="/" className='text-rock'>Contacto</Nav.Link>
+            <Nav.Link href="/sobreNosotros" className='text-rock'>Sobre nosotros</Nav.Link>
+            <Nav.Link href="#" className='text-rock'>Contacto</Nav.Link>
           {token && role==="user" ?(
               <>        
               <Nav.Link href="#" className='text-rock'>Favoritos</Nav.Link>

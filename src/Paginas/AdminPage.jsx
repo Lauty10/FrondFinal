@@ -4,6 +4,8 @@ import axiosUrl from '../helps/axiosBase'
 import TableC from '../Componentes/TableC'
 import NavbarC from '../Componentes/NavbarC'
 import FooterC from '../Componentes/FooterC'
+import { Col, Container, Row } from 'react-bootstrap'
+
 
 const AdminPage = () => {
 
@@ -29,7 +31,13 @@ const AdminPage = () => {
     <>
     <div className='img-body'>
     <NavbarC/>
-    <TableC data={rockProduct}/>
+    <Container>
+      <Row>
+        <Col lg={"12"} sm={"12"} md={"12"}>
+        <TableC  data={rockProduct}/>
+        </Col>
+      </Row>
+    </Container>
     <FooterC/>
     </div>
     </>

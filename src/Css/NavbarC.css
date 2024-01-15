@@ -41,3 +41,23 @@ width: 70px;
 .navbar-toggler-icon {
 background-color: white;
   }
+
+  .button-product{
+    font-family: 'Rock Salt', cursive;
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+  }
+
+  
+  .button-product:hover{
+  background-color: transparent;
+  color: red;
+  }
+
+  @media(max-width:991px){
+    .button-product{
+      
+      }
+    
+  }

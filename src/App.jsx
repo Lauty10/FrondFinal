@@ -5,7 +5,8 @@ import RegisterPage from './Paginas/RegisterPage';
 import LoginPage from './Paginas/LoginPage';
 import UserPage from './Paginas/UserPage';
 import AdminPage from './Paginas/AdminPage';
-import UserAdmin from './Paginas/UserAdmin';
+import AdminPageUser from './Paginas/AdminPageUser';
+
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/user'  element={<UserPage/>}/>
         <Route path='/admin'  element={<AdminPage/>}/>
-        <Route path='/userAdmin'  element={<UserAdmin/>}/>
+        <Route path='/userAdmin'  element={<AdminPageUser/>}/>
     </Routes>
   </Router>
   </>

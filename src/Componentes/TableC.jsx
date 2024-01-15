@@ -68,18 +68,19 @@ const TableC = ({ data }) => {
 
     }
     
+  
 
  
   return (
-    <div className='d-flex justify-content-center '>
-      <Table striped bordered hover size="sm" className='w-50 my-5'>
+    <div className='d-flex justify-content-center body-table '>
+      <Table striped bordered hover size="sm" className='w-100 my-5'>
         <thead>
           <tr>
             <th  className='style-title '>Nombre</th>
             <th  className='style-title'>Marca</th>
             <th  className='style-title'>Precio</th>
             <th  className='style-title'>Imagen</th>
-            <th  className='style-title'>Editar/Eliminar</th>
+            <th  className='style-title'>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -90,8 +91,8 @@ const TableC = ({ data }) => {
               <td className='font-style'>{info.Precio}</td>
               <td className='font-style'><img className='style-img' src={info.Imagen} alt="Producto"/></td>
               <td>
-              <Button variant="warning" onClick={()=>handleShow(info._id)}>Editar</Button>
-              <Button className='ms-3' variant="danger" onClick={()=>deleteProduct(info._id)}>Eliminar</Button>
+              <Button className='button-flex' variant="warning" onClick={()=>handleShow(info._id)}>Editar</Button>
+              <Button className='button-flex' variant="danger" onClick={()=>deleteProduct(info._id)}>Eliminar</Button>
 
              <Modal show={show} onHide={handleClose}>
              <Modal.Header closeButton>

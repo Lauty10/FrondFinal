@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import FormControl from 'react-bootstrap/FormControl';
-import logoImage from '../Images/Logo.jpg';
+import logoImage from '../Images/Logo.png';
 import '../Css/NavbarC.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -133,8 +133,8 @@ try {
               )}
             </div>
             <Nav.Link href="/" className='text-rock'>Inicio</Nav.Link>
-            <Nav.Link href="/" className='text-rock'>Sobre nosotros</Nav.Link>
-            <Nav.Link href="/" className='text-rock'>Contacto</Nav.Link>
+            <Nav.Link href="/sobreNosotros" className='text-rock'>Sobre nosotros</Nav.Link>
+            <Nav.Link href="#" className='text-rock'>Contacto</Nav.Link>
           {token && role==="user" ?(
               <>        
               <Nav.Link href="#" className='text-rock'>Favoritos</Nav.Link>

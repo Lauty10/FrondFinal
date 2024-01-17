@@ -11,7 +11,7 @@ const SliderC = ({ productos }) => {
       {productos.map((card) => (
         <Carousel.Item key={card._id} className='style-carrusel' >
           <div className='d-flex justify-content-center'>
-          <CardC title={card.Nombre} imageUrl={card.Imagen} content={card.Descripcion} />
+          <CardC title={card.Nombre} imageUrl={card.Imagen} content={card.Descripcion} idProduct={card._id} />
           </div>
         </Carousel.Item>
       ))}

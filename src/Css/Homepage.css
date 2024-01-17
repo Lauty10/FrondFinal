@@ -32,11 +32,12 @@
     font-family: 'Rock Salt', cursive;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
+  
  
   }
 
 
-.accordion-header {
-    border-bottom: solid 1px black;
+.header-acordion {
+  border-top: solid 1px black;
   }
   

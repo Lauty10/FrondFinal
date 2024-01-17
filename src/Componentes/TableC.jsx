@@ -39,6 +39,7 @@ const TableC = ({ data }) => {
         const sendPost = await axiosUrl.put(`/productos/${state._id}`, {
           Nombre: state.Nombre,
           Marca: state.Marca,
+          Descripcion:state.Descripcion,
           Precio: state.Precio,
           Imagen: state.Imagen
         }, headboard);
@@ -110,6 +111,11 @@ const TableC = ({ data }) => {
             <Form.Group className="mb-3">
             <Form.Label>Marca</Form.Label>
            <Form.Control type="text" placeholder="Ingresa la marca"  name='Marca' value={state.Marca} onChange={handleChage} />
+           </Form.Group>
+
+           <Form.Group className="mb-3">
+            <Form.Label>Descripcion</Form.Label>
+           <Form.Control type="text" placeholder="Ingresa la descripcion"  name='Descripcion' value={state.Descripcion} onChange={handleChage} />
            </Form.Group>
 
            

@@ -87,6 +87,7 @@ useEffect(()=>{
   },[catalogue])
 
   const [open, setOpen] = useState(false);
+  const [openTwo, setOpenTwo] = useState(false);
 
 
   return (
@@ -100,7 +101,8 @@ useEffect(()=>{
       <div className='body-for'>Si eres apasionado por el Rock, este es tu lugar</div>
       <div className='body-five d-flex justify-content-end'>Esperamos que disfrutes de Full Rock</div>
       <div>
-      <div className='my-5 text-center'>
+     <div className='style-info mt-4'>
+     <div className='my-5 text-center border-style'>
   <Button className='custom-button mx-auto'
     onClick={() => setOpen(!open)}
     aria-controls="example-collapse-text"
@@ -114,8 +116,22 @@ useEffect(()=>{
     </div>
   </Collapse>
 </div>
-
-        <div className='mt-5'>
+<div className='my-5 text-center'>
+  <Button className='custom-button mx-auto'
+    onClick={() => setOpenTwo(!openTwo)}
+    aria-controls="example-collapse-text"
+    aria-expanded={open}>
+    Garantias y metodos de pago {' '}
+    {openTwo ? <span>&#9660;</span> : <span>&#9654;</span>}
+  </Button>
+  <Collapse in={openTwo}>
+    <div id="example-collapse-text" className="info-container">
+    En Full Rock, aceptamos Mercado Pago para proporcionarte una forma segura y eficiente de realizar tus compras. Con Mercado Pago, puedes elegir entre diversas opciones, como tarjetas de crédito, débito, transferencias bancarias y otros métodos disponibles. Así, garantizamos un proceso de pago fácil y accesible para todos nuestros clientes.Para aquellos que prefieren el pago en efectivo, también aceptamos esta opción en nuestras tiendas físicas. Al realizar tu compra, podrás optar por pagar en efectivo al recibir tus productos. Esto brinda flexibilidad y comodidad, adaptándonos a tus preferencias de pago.Cada prenda que adquieras en Full Rock está respaldada por una garantía de 1 semana. Esto significa que tienes un período de tiempo considerable para evaluar tu compra y asegurarte de que cumple con todas tus expectativas.
+    </div>
+  </Collapse>
+</div>
+</div>
+  <div className='mt-5'>
       <h1 className='h-rock'>
         Full Rock, estilo <Badge bg="danger">Rock</Badge>
       </h1>

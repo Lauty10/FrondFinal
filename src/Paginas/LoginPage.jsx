@@ -7,12 +7,13 @@ import Swal from 'sweetalert2'
 import Redondos from "../Images/REDONDOS.jpg"
 import FooterC from '../Componentes/FooterC';
 import axiosUrl, { headboard } from '../helps/axiosBase';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const LoginPage = () => {
-
-    const [loginRock,setLoginRock]=useState({
+     const navigate=useNavigate()
+     const [loginRock,setLoginRock]=useState({
         correoRock:"",
         passRock:""
     })
@@ -30,6 +31,7 @@ const LoginPage = () => {
     if (userLogin.data.Role==="user") {
       sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
       sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
+      sessionStorage.setItem("idUsuario",JSON.stringify(userLogin.data.idUsuario))
       Swal.fire({
         title: "Iniciando Sesion...",
         text: "Los redondos una de las bandas mas convocantes de Argentina",
@@ -38,18 +40,19 @@ const LoginPage = () => {
         imageHeight: 200,
       });
       setTimeout(()=>{
-        location.href=("/user")
+        navigate("/user")
       },3000)
     }else{
       sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
       sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
+      sessionStorage.setItem("idUsuario",JSON.stringify(userLogin.data.idUsuario))
       Swal.fire({
         icon: "success",
         title: "Bienvenido Administrador",
         text: "Iniciando sesion...",
       });
       setTimeout(()=>{
-        location.href=("/admin")
+        navigate("/admin")
       },3000)
     }  
     }

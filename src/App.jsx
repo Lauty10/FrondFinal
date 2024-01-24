@@ -8,6 +8,7 @@ import AdminPage from './Paginas/AdminPage';
 import AdminPageUser from './Paginas/AdminPageUser';
 import SobreNosotros from './Paginas/SobreNosotros';
 import ProductPage from './Paginas/ProductPage';
+import FavPage from './Paginas/FavPage';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/userAdmin'  element={<AdminPageUser/>}/>
         <Route path='/sobreNosotros'  element={<SobreNosotros/>}/>
         <Route path='/productos/:id' element={<ProductPage/>}/>
+        <Route path='/fav' element={<FavPage/>}/>
     </Routes>
   </Router>
   </>

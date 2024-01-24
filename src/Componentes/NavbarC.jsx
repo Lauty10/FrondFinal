@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import FormControl from 'react-bootstrap/FormControl';
@@ -8,8 +8,17 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import axiosUrl, { headboard } from '../helps/axiosBase';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Table from 'react-bootstrap/Table';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 
 const NavbarC = () => {
+  const navigate=useNavigate();
   const [barra, setBarra] = useState(false);
 
   const toggleSearch = () => {
@@ -19,7 +28,7 @@ const NavbarC = () => {
   const sinOff=()=>{
     sessionStorage.removeItem("token")
     sessionStorage.removeItem("role")
-    location.href="/"
+    navigate("/")
   }
 
   const token = JSON.parse(sessionStorage.getItem("token")) || "";
@@ -116,6 +125,35 @@ try {
 }
 }
 
+const [carrRock,setCarrRock]=useState([])
+
+const carrMe=async()=>{
+  const rockCarrMe=await axiosUrl.get("/carr")
+  setCarrRock(rockCarrMe.data.carrGet)
+}
+
+useEffect(()=>{
+  carrMe()
+},[])
+
+useEffect(()=>{
+  console.log(carrRock)
+},[carrRock])
+
+const handleCant=(ev)=>{
+console.log(ev)
+}
+
+const totalPrice=()=>{
+  let total=0
+  carrRock.forEach((data)=>{
+    data.productos.forEach((value)=>{
+      total+=value.Precio
+    })
+  })
+  return total
+}
+
 
   return (
     <>
@@ -132,17 +170,50 @@ try {
                 />
               )}
             </div>
-            <Nav.Link href="/" className='text-rock'>Inicio</Nav.Link>
-            <Nav.Link href="/sobreNosotros" className='text-rock'>Sobre nosotros</Nav.Link>
-            <Nav.Link href="#" className='text-rock'>Contacto</Nav.Link>
+            <NavLink  to="/" className='text-rock'>Inicio</NavLink>
+            <NavLink to="/sobreNosotros" className='text-rock'>Sobre nosotros</NavLink>
+            <NavLink to="#" className='text-rock'>Contacto</NavLink>
           {token && role==="user" ?(
               <>        
-              <Nav.Link href="#" className='text-rock'>Favoritos</Nav.Link>
-              <Nav.Link href="#" className='text-rock'>Carrito</Nav.Link>
+              <NavLink to="/fav" className='text-rock'>Favoritos</NavLink>
+              <NavLink to="/fav" onClick={handleShow} className='text-rock'>Carrito</NavLink>
+            <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Carrito de compras</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+            <Table striped bordered hover>
+          <thead>
+          <tr>
+          <th>Nombre</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Total</th>
+          </tr>
+          </thead>
+         <tbody>
+         {carrRock.map((data) => (
+        data.productos.map((producto) => (
+        <tr key={producto._id}>
+          <td>{producto.Nombre}</td>
+          <td>{producto.Marca}</td>
+          <td>{producto.Precio}</td>
+          <td><input type="number" className='form-control' value={1} onChange={handleCant}/>
+          </td>
+        </tr>
+      ))
+    ))}
+       </tbody>
+    </Table>
+    {
+      <h2>Precio total a pagar: ${totalPrice()}</h2>
+    }
+           </Offcanvas.Body>
+           </Offcanvas>
               </>
           ):token && role==="admin" && AdminPageProduct=="/admin" ? (
             <>
-            <Nav.Link href="/userAdmin" className='text-rock'>Usuarios</Nav.Link>        
+            <NavLink to="/userAdmin" className='text-rock'>Usuarios</NavLink>        
            <Button className='button-product me-auto' variant="danger" onClick={handleShow}>
            Crear un producto
            </Button>
@@ -189,7 +260,7 @@ try {
             </>
           ):token && role==="admin" && AdminPageProduct=="/userAdmin"?(
             <>
-            <Nav.Link href="/admin" className='text-rock'>Productos</Nav.Link>        
+            <NavLink to="/admin" className='text-rock'>Productos</NavLink>        
             <Button  className='button-product me-auto'  onClick={handleShow}>
             Crear un usuario
             </Button>
@@ -237,12 +308,12 @@ try {
         </Nav>
           {token && role ? (
             <Nav className='ms-auto me-1'>
-              <Nav.Link href="/#"  className='text-rock' onClick={sinOff}>Cerrar Sesion</Nav.Link>
+              <NavLink to="/#"  className='text-rock' onClick={sinOff}>Cerrar Sesion</NavLink>
             </Nav>
           ) : (
             <Nav className="ms-auto me-2">
-              <Nav.Link href="/register" className='text-rock'>Registrarse</Nav.Link>
-              <Nav.Link href="/login" className='text-rock'>Iniciar Sesion</Nav.Link>
+              <NavLink to="/register" className='text-rock'>Registrarse</NavLink>
+              <NavLink to="/login" className='text-rock'>Iniciar Sesion</NavLink>
             </Nav>
           )}
         </Navbar.Collapse>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axiosUrl from '../helps/axiosBase';
 import NavbarC from '../Componentes/NavbarC';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -14,6 +14,7 @@ import Aero from "../Images/aero.jpg"
 import Queen from "../Images/QueenBand.jpg"
 
 const ProductPage = () => {
+  const navigate=useNavigate();
     const token=sessionStorage.getItem("token")
     const params=useParams();
     const[productos,setProductos]=useState({})
@@ -30,36 +31,80 @@ const ProductPage = () => {
        console.log(productos)
        },[productos])
 
-const favoriteProduct=()=>{
-  if (!token) {
-    Swal.fire({
-      title: "Debes Iniciar Sesion!",
-      text: "AeroSmith una de la bandas mas emblematicas de los 80/90",
-      imageUrl: Aero,
-      imageWidth: 400,
-      imageHeight: 200,
-      imageAlt: "Custom image"
-    });
-    setTimeout(()=>{
-      location.href=("/login")
-    },3000)
+const favoriteProduct=async()=>{
+  try {
+    if (!token) {
+      Swal.fire({
+        title: "Debes Iniciar Sesion!",
+        text: "AeroSmith una de la bandas mas emblematicas de los 80/90",
+        imageUrl: Aero,
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image"
+      });
+      setTimeout(()=>{
+       navigate("/login")
+      },3000)
+    }else{
+      const userId =JSON.parse(sessionStorage.getItem('idUsuario'))
+      const addUser= await axiosUrl.get(`/usuarios/${userId}`)
+      console.log(addUser);
+      if (addUser.status===200) {
+        const addProd= await axiosUrl.post(`/productos/fav//${params.id}`)
+        if (addProd.status===200) {
+          Swal.fire({
+            title: "Producto agregado a favoritos!",
+            text: "Queen una de la bandas mas grandes del mundo entero",
+            imageUrl: Queen,
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image"
+          });
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
   }
+ 
 }
 
-const carrProduct=()=>{
-  if (!token) {
-    Swal.fire({
-      title: "Debes Iniciar Sesion!",
-      text: "Queen una de la bandas mas grandes del mundo entero",
-      imageUrl: Queen,
-      imageWidth: 400,
-      imageHeight: 200,
-      imageAlt: "Custom image"
-    });
-    setTimeout(()=>{
-      location.href=("/login")
-    },3000)
+const carrProduct=async()=>{
+  try {
+    if (!token) {
+      Swal.fire({
+        title: "Debes Iniciar Sesion!",
+        text: "Queen una de la bandas mas grandes del mundo entero",
+        imageUrl: Queen,
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image"
+      });
+      setTimeout(()=>{
+        navigate("/login")
+      },3000)
+    }else{
+      const userId =JSON.parse(sessionStorage.getItem('idUsuario'))
+      const addUser= await axiosUrl.get(`/usuarios/${userId}`)
+      console.log(addUser);
+      if (addUser.status===200) {
+        const addProd= await axiosUrl.post(`/productos/cart/${params.id}`)
+        if (addProd.status===200) {
+          Swal.fire({
+            title: "Producto agregado al carrito!",
+            text: "Queen una de la bandas mas grandes del mundo entero",
+            imageUrl: Queen,
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image"
+          });
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
   }
+ 
 }
        
   return (

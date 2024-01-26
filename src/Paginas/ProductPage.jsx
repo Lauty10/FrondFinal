@@ -50,7 +50,12 @@ const favoriteProduct=async()=>{
       const addUser= await axiosUrl.get(`/usuarios/${userId}`)
       console.log(addUser);
       if (addUser.status===200) {
-        const addProd= await axiosUrl.post(`/productos/fav//${params.id}`)
+        const config = {
+          headers: {
+            'Authorization': `${token}`
+          }
+        };
+        const addProd= await axiosUrl.post(`/productos/fav/${params.id}`,{},config)
         if (addProd.status===200) {
           Swal.fire({
             title: "Producto agregado a favoritos!",
@@ -88,7 +93,12 @@ const carrProduct=async()=>{
       const addUser= await axiosUrl.get(`/usuarios/${userId}`)
       console.log(addUser);
       if (addUser.status===200) {
-        const addProd= await axiosUrl.post(`/productos/cart/${params.id}`)
+        const config = {
+          headers: {
+            'Authorization': `${token}`
+          }
+        };
+        const addProd= await axiosUrl.post(`/productos/cart/${params.id}`,{},config)
         if (addProd.status===200) {
           Swal.fire({
             title: "Producto agregado al carrito!",

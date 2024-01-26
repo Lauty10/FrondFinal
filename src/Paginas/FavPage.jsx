@@ -7,10 +7,18 @@ import "../Css/Fav.css"
 import CardC from '../Componentes/CardC';
 
 const FavPage = () => {
+    // obtenemos dato
+    const rockData=JSON.parse(sessionStorage.getItem('idUsuario'))
+
+    console.log(rockData)
+
     const[productFav,setProductFav]=useState([])
+
+
     const getFavRock=async()=>{
         const rockFav= await axiosUrl.get("/fav")
-        setProductFav(rockFav.data.getAllFav[0].favoritos)
+        const findRock=rockFav.data.getAllFav.find((data)=>data.idUsuario===rockData)
+        setProductFav(findRock.favoritos)
     }
 
 useEffect(()=>{

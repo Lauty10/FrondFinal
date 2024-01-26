@@ -18,6 +18,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const NavbarC = () => {
+  const rockData=JSON.parse(sessionStorage.getItem('idUsuario'))
   const navigate=useNavigate();
   const [barra, setBarra] = useState(false);
 
@@ -28,6 +29,7 @@ const NavbarC = () => {
   const sinOff=()=>{
     sessionStorage.removeItem("token")
     sessionStorage.removeItem("role")
+    sessionStorage.removeItem("idUsuario")
     navigate("/")
   }
 
@@ -129,7 +131,8 @@ const [carrRock,setCarrRock]=useState([])
 
 const carrMe=async()=>{
   const rockCarrMe=await axiosUrl.get("/carr")
-  setCarrRock(rockCarrMe.data.carrGet)
+  const rockCarrIndividual=rockCarrMe.data.carrGet.find((data)=>data.idUsuario===rockData)
+  setCarrRock(rockCarrIndividual.productos)
 }
 
 useEffect(()=>{
@@ -137,22 +140,26 @@ useEffect(()=>{
 },[])
 
 useEffect(()=>{
-  console.log(carrRock)
+console.log(carrRock);
 },[carrRock])
+
+
+
+
 
 const handleCant=(ev)=>{
 console.log(ev)
 }
 
-const totalPrice=()=>{
-  let total=0
-  carrRock.forEach((data)=>{
-    data.productos.forEach((value)=>{
-      total+=value.Precio
-    })
-  })
-  return total
-}
+const totalPrice = () => {
+  let total = 0;
+
+  carrRock.forEach((producto) => {
+    total += producto.Precio;
+  });
+
+  return total;
+};
 
 
   return (
@@ -176,7 +183,7 @@ const totalPrice=()=>{
           {token && role==="user" ?(
               <>        
               <NavLink to="/fav" className='text-rock'>Favoritos</NavLink>
-              <NavLink to="/fav" onClick={handleShow} className='text-rock'>Carrito</NavLink>
+              <NavLink onClick={handleShow} className='text-rock'>Carrito</NavLink>
             <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
             <Offcanvas.Title>Carrito de compras</Offcanvas.Title>
@@ -192,17 +199,14 @@ const totalPrice=()=>{
           </tr>
           </thead>
          <tbody>
-         {carrRock.map((data) => (
-        data.productos.map((producto) => (
-        <tr key={producto._id}>
-          <td>{producto.Nombre}</td>
-          <td>{producto.Marca}</td>
-          <td>{producto.Precio}</td>
-          <td><input type="number" className='form-control' value={1} onChange={handleCant}/>
-          </td>
-        </tr>
-      ))
-    ))}
+         {carrRock.map((producto) => (
+  <tr key={producto._id}>
+    <td>{producto.Nombre}</td>
+    <td>{producto.Marca}</td>
+    <td>{producto.Precio}</td>
+    <td><input type="number" className='form-control' value={1} onChange={handleCant}/></td>
+  </tr>
+))}
        </tbody>
     </Table>
     {

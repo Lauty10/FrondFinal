@@ -139,12 +139,6 @@ useEffect(()=>{
   carrMe()
 },[])
 
-useEffect(()=>{
-console.log(carrRock);
-},[carrRock])
-
-
-
 
 
 const handleCant=(ev)=>{
@@ -160,6 +154,24 @@ const totalPrice = () => {
 
   return total;
 };
+
+const deleteRock=async(id)=>{
+  const token=sessionStorage.getItem('token')
+  try {
+    const config = {
+      headers: {
+        'Authorization': `${token}`
+      }
+    };
+    const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
+    if (rockDelte.status===200) {
+      alert("Producto eliminado")
+      window.location.reload()
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 
   return (
@@ -178,39 +190,40 @@ const totalPrice = () => {
               )}
             </div>
             <NavLink  to="/" className='text-rock'>Inicio</NavLink>
-            <NavLink to="/sobreNosotros" className='text-rock'>Sobre nosotros</NavLink>
+            <NavLink to="/sobreNosotros" className='text-rock'>Sobre mi</NavLink>
             <NavLink to="#" className='text-rock'>Contacto</NavLink>
           {token && role==="user" ?(
-              <>        
+              <>   
+              <NavLink to="/user" className='text-rock'>Tienda</NavLink>     
               <NavLink to="/fav" className='text-rock'>Favoritos</NavLink>
               <NavLink onClick={handleShow} className='text-rock'>Carrito</NavLink>
             <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Carrito de compras</Offcanvas.Title>
+            <Offcanvas.Title id='style-carr-title' className='title-carr'>Carrito de compras</Offcanvas.Title>
             </Offcanvas.Header>
-            <Offcanvas.Body>
+            <Offcanvas.Body className='style-carr'>
             <Table striped bordered hover>
           <thead>
           <tr>
-          <th>Nombre</th>
-          <th>Marca</th>
-          <th>Precio</th>
-          <th>Total</th>
+          <th className='th-text'>Nombre</th>
+          <th className='th-text'>Precio</th>
+          <th className='th-text'>Cantidad</th>
+          <th className='th-text'>Eliminar</th>
           </tr>
           </thead>
          <tbody>
          {carrRock.map((producto) => (
-  <tr key={producto._id}>
-    <td>{producto.Nombre}</td>
-    <td>{producto.Marca}</td>
-    <td>{producto.Precio}</td>
-    <td><input type="number" className='form-control' value={1} onChange={handleCant}/></td>
-  </tr>
-))}
+         <tr key={producto._id}>
+         <td className='title-carr'>{producto.Nombre}</td>
+         <td className='title-carr'>{producto.Precio}</td>
+         <td><input type="number" className='form-control'  onChange={handleCant}/></td>
+         <td><Button onClick={()=>deleteRock(producto._id)} className='my-3' variant='danger'>Eliminar</Button></td>
+        </tr>
+          ))}
        </tbody>
     </Table>
     {
-      <h2>Precio total a pagar: ${totalPrice()}</h2>
+      <h2 className='title-carr mt-5' >Precio total a pagar: ${totalPrice()}</h2>
     }
            </Offcanvas.Body>
            </Offcanvas>

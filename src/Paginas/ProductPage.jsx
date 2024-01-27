@@ -27,9 +27,6 @@ const ProductPage = () => {
         getProductoRock()
        },[])
 
-       useEffect(()=>{
-       console.log(productos)
-       },[productos])
 
 const favoriteProduct=async()=>{
   try {

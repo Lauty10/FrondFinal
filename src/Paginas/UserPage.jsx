@@ -5,7 +5,6 @@ import "../Css/UserPage.css";
 import { Col, Container, Row } from 'react-bootstrap';
 import axiosUrl from '../helps/axiosBase';
 import CardB from '../Componentes/CardB';
-import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 
@@ -101,8 +100,8 @@ useEffect(()=>{
       <div className='body-for'>Si eres apasionado por el Rock, este es tu lugar</div>
       <div className='body-five d-flex justify-content-end'>Esperamos que disfrutes de Full Rock</div>
       <div>
-     <div className='style-info mt-4'>
-     <div className='my-5 text-center border-style'>
+     <div className='mt-4'>
+     <div className='my-5 text-center'>
   <Button className='custom-button mx-auto'
     onClick={() => setOpen(!open)}
     aria-controls="example-collapse-text"
@@ -131,28 +130,8 @@ useEffect(()=>{
   </Collapse>
 </div>
 </div>
-  <div className='mt-5'>
-      <h1 className='h-rock'>
-        Full Rock, estilo <Badge bg="danger">Rock</Badge>
-      </h1>
-      <h2 className='h-rock '>
-        Full Rock, pasion <Badge bg="warning">Rock</Badge>
-      </h2>
-      <h3 className='h-rock '>
-        Full Rock, energia <Badge bg="success">Rock</Badge>
-      </h3>
-      <h4 className='h-rock '>
-        Full Rock, actitud <Badge bg="primary">Rock</Badge>
-      </h4>
-      <h5 className='h-rock '>
-        Full Rock, familia <Badge bg="info">Rock</Badge>
-      </h5>
-      <h6 className='h-rock '>
-        Full Rock, vibras <Badge bg="secondary">Rock</Badge>
-      </h6>
-    </div>
-        <p className='h2-rock my-5'>Espero nuestro catalogo sea de tu agrado</p>
-      </div>
+ </div>
+ <div className='style-container'>
 <Container>
   <Row>
     {catalogue.map((info) => (
@@ -163,6 +142,7 @@ useEffect(()=>{
   </Row>
 </Container>
       <FooterC />
+      </div>
     </>
   );
 };

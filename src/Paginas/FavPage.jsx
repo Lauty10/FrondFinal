@@ -7,19 +7,21 @@ import "../Css/Fav.css"
 import CardC from '../Componentes/CardC';
 
 const FavPage = () => {
+    const rockData=JSON.parse(sessionStorage.getItem('idUsuario'))
+
     const[productFav,setProductFav]=useState([])
+
     const getFavRock=async()=>{
         const rockFav= await axiosUrl.get("/fav")
-        setProductFav(rockFav.data.getAllFav[0].favoritos)
+
+        const findRock=rockFav.data.getAllFav.find((data)=>data.idUsuario===rockData)
+
+        setProductFav(findRock.favoritos)
     }
 
 useEffect(()=>{
     getFavRock()
 },[])
-
-useEffect(()=>{
-    console.log(productFav)
-},[productFav])
 
 
   return (
@@ -30,7 +32,7 @@ useEffect(()=>{
         <Row>
         {productFav.map((data)=>(
             <Col className='my-5' sm={"12"} md={"4"} lg={"4"} key={data._id}>
-           <CardC imageUrl={data.Imagen} idPage='favPage'/>
+           <CardC imageUrl={data.Imagen} idPage='favPage' idDelete={data._id}/>
             </Col>
            ))}
         </Row>

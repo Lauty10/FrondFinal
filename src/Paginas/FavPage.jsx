@@ -37,7 +37,7 @@ useEffect(()=>{
     <Container className='my-5'>
         <Row>
         {productFav.map((data)=>(
-            <Col className='my-5' sm={"12"} md={"4"} lg={"4"} key={data._id}>
+            <Col className='my-5 d-flex justify-content-center aling-items-center' sm={"12"} md={"4"} lg={"4"} key={data._id}>
            <CardC imageUrl={data.Imagen} idPage='favPage' idDelete={data._id}/>
             </Col>
            ))}

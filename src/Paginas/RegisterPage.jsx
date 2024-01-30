@@ -7,8 +7,10 @@ import Soda from "../Images/SODA.JPG"
 import "../Css/RegisterPage.css"
 import { Col, Container, Row } from 'react-bootstrap';
 import FooterC from '../Componentes/FooterC';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
+   const navigate=useNavigate()
     const [formRegister,setFormRegister]=useState({
         NombreRock:"",
         NacionalidadRock:"",
@@ -54,6 +56,9 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
         imageWidth: 400,
         imageHeight: 200,
       });
+      setTimeout(()=>{
+         navigate("/login")
+      },3000)
    }
 }else{
     Swal.fire({

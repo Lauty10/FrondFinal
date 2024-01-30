@@ -204,7 +204,7 @@ const deleteRock=async(id)=>{
             </div>
             <NavLink  to="/" className='text-rock'>Inicio</NavLink>
             <NavLink to="/sobreNosotros" className='text-rock'>Sobre mi</NavLink>
-            <NavLink to="/sobreNosotros" onClick={handleWhatsAppClick} className='text-rock'>Contacto</NavLink>
+            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock'>Contacto</NavLink>
           {token && role==="user" ?(
               <>   
               <NavLink to="/user" className='text-rock'>Tienda</NavLink>     

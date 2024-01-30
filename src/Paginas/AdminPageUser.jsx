@@ -23,9 +23,6 @@ const AdminPageUser = () => {
     rockUser()
   },[])
 
-  useEffect(()=>{
-    console.log(userData)
-  },[userData])
   return (
     <div className='style-table'>
     <>

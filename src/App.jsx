@@ -9,6 +9,7 @@ import AdminPageUser from './Paginas/AdminPageUser';
 import SobreNosotros from './Paginas/SobreNosotros';
 import ProductPage from './Paginas/ProductPage';
 import FavPage from './Paginas/FavPage';
+import PrivateRoute from './Componentes/PrivateRoute';
 
 
 const App = () => {
@@ -19,12 +20,24 @@ const App = () => {
         <Route path='/' element={<HomePage/>}/>
         <Route path='/register' element={<RegisterPage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/user'  element={<UserPage/>}/>
-        <Route path='/admin'  element={<AdminPage/>}/>
-        <Route path='/userAdmin'  element={<AdminPageUser/>}/>
+        <Route path='/user'  element={
+        <PrivateRoute role={'user'}>
+          <UserPage/>
+        </PrivateRoute>}/>
+        <Route path='/admin'  element={
+        <PrivateRoute role={'admin'}>
+          <AdminPage/>
+        </PrivateRoute>}/>
+        <Route path='/userAdmin'  element={
+        <PrivateRoute role={'admin'}>
+          <AdminPageUser/>
+        </PrivateRoute>}/>
         <Route path='/sobreNosotros'  element={<SobreNosotros/>}/>
         <Route path='/productos/:id' element={<ProductPage/>}/>
-        <Route path='/fav' element={<FavPage/>}/>
+        <Route path='/fav' element={
+        <PrivateRoute role={'user'}>
+          <FavPage/>
+        </PrivateRoute>}/>
     </Routes>
   </Router>
   </>

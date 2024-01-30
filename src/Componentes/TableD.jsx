@@ -35,13 +35,19 @@ const TableD = ({data}) => {
 
     const postEdit= async (ev)=>{
         ev.preventDefault()
+        const token=sessionStorage.getItem('token')
         try {
+          const config = {
+            headers: {
+              'Authorization': `${token}`
+            }
+          };
             const RockFull= await axiosUrl.put(`/usuarios/${edit._id}`,{
                 Nombre:edit.Nombre,
                 Correo:edit.Correo,
                 Nacionalidad:edit.Nacionalidad,
                 Role:edit.Role
-            },headboard)
+            },config,headboard)
             if (RockFull.status===200) {
                 alert("Producto Actualizado")
                 window.location.reload()
@@ -52,10 +58,16 @@ const TableD = ({data}) => {
     }
 
     const deleteUser=async(id)=>{
+      const token=sessionStorage.getItem('token')
         try {
+          const config = {
+            headers: {
+              'Authorization': `${token}`
+            }
+          };
             const confirmDelete=confirm("Seguro deseas eliminar este usuario?")
             if (confirmDelete) {
-                const RockDelete=await axiosUrl.delete(`/usuarios/${id}`)
+                const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,config)
                 if (RockDelete.status===200) {
                     alert("Usuario eliminado correctamente")
                     location.reload()

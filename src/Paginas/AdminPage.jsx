@@ -20,11 +20,6 @@ const AdminPage = () => {
     rockAllP()
   },[])
 
-  useEffect(()=>{
-    console.log(rockProduct)
-  },[rockProduct])
-
-
 
 
   return (

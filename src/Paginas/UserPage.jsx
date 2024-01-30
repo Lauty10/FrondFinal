@@ -4,9 +4,9 @@ import FooterC from '../Componentes/FooterC';
 import "../Css/UserPage.css";
 import { Col, Container, Row } from 'react-bootstrap';
 import axiosUrl from '../helps/axiosBase';
-import CardB from '../Componentes/CardB';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
+import CardC from '../Componentes/CardC';
 
 const UserPage = () => {
   useEffect(() => {
@@ -136,7 +136,7 @@ useEffect(()=>{
   <Row>
     {catalogue.map((info) => (
       <Col className='my-2 d-flex justify-content-center aling-items-center' sm={"12"} md={"4"} lg={"4"} key={info._id}>
-        <CardB titleCatalogue={info.Nombre} imgCatalogue={info.Imagen} contentCatalogue={info.Descripcion} />
+        <CardC title={info.Nombre} imageUrl={info.Imagen}  idProduct={info._id} />
       </Col>
     ))}
   </Row>

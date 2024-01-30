@@ -13,6 +13,7 @@
 #title-id{
     color: yellow;
     font-family: 'Rubik Glitch', system-ui;
+    font-size: 20px;
 }
 
 #style-card {
@@ -22,6 +23,7 @@
 }
 
 
-.card-img{
-    height: 18rem;
+.img-card{
+    height: 15rem;
+    object-fit: cover;
 }

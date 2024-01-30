@@ -130,7 +130,13 @@ try {
 const [carrRock,setCarrRock]=useState([])
 
 const carrMe=async()=>{
-  const rockCarrMe=await axiosUrl.get("/carr")
+  const token=sessionStorage.getItem('token')
+  const config = {
+      headers: {
+        'Authorization': `${token}`
+      }
+    };
+  const rockCarrMe=await axiosUrl.get("/carr",config)
   const rockCarrIndividual=rockCarrMe.data.carrGet.find((data)=>data.idUsuario===rockData)
   setCarrRock(rockCarrIndividual.productos)
 }

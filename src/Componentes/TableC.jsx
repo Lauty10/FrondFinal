@@ -34,15 +34,21 @@ const TableC = ({ data }) => {
     }
 
     const editProductRock = async (ev) => {
+      const token=sessionStorage.getItem('token')
       ev.preventDefault();
       try {
+        const config = {
+          headers: {
+            'Authorization': `${token}`
+          }
+        };
         const sendPost = await axiosUrl.put(`/productos/${state._id}`, {
           Nombre: state.Nombre,
           Marca: state.Marca,
           Descripcion:state.Descripcion,
           Precio: state.Precio,
           Imagen: state.Imagen
-        }, headboard);
+        },config,headboard);
     
         if (sendPost.status === 200) {
           alert("Producto actualizado");
@@ -54,10 +60,16 @@ const TableC = ({ data }) => {
     };
 
     const deleteProduct= async (id)=>{
+      const token=sessionStorage.getItem('token')
      try {
+      const config = {
+        headers: {
+          'Authorization': `${token}`
+        }
+      };
       const confirmDelete=confirm("Estas seguro de borrar este producto?")
       if (confirmDelete) {
-        const rockDelete= await axiosUrl.delete(`/productos/${id}`)
+        const rockDelete= await axiosUrl.delete(`/productos/${id}`,config)
         if (rockDelete.status===200) {
           alert("Producto eliminado correctamente")
           location.reload()

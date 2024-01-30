@@ -12,7 +12,13 @@ const FavPage = () => {
     const[productFav,setProductFav]=useState([])
 
     const getFavRock=async()=>{
-        const rockFav= await axiosUrl.get("/fav")
+        const token=sessionStorage.getItem('token')
+        const config = {
+            headers: {
+              'Authorization': `${token}`
+            }
+          };
+        const rockFav= await axiosUrl.get("/fav",config)
 
         const findRock=rockFav.data.getAllFav.find((data)=>data.idUsuario===rockData)
 

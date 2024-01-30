@@ -30,10 +30,7 @@ const HomePage = () => {
    allGetProductos()
   },[])
 
-  useEffect(()=>{
-    console.log(productos)
-  },[productos])
-
+  
 
 
   return (

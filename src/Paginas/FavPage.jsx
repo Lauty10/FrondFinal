@@ -43,7 +43,6 @@ useEffect(()=>{
            ))}
         </Row>
     </Container>
-    <FooterC/>
     </div>
     </>
   )

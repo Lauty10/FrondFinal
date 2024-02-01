@@ -7,6 +7,7 @@ import axiosUrl from '../helps/axiosBase';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import CardC from '../Componentes/CardC';
+import Pagination from 'react-bootstrap/Pagination';
 
 const UserPage = () => {
   useEffect(() => {
@@ -88,6 +89,29 @@ useEffect(()=>{
   const [open, setOpen] = useState(false);
   const [openTwo, setOpenTwo] = useState(false);
 
+  let active = 2;
+let items = [];
+for (let number = 1; number <= 5; number++) {
+  items.push(
+    <Pagination.Item key={number} active={number === active}>
+      {number}
+    </Pagination.Item>,
+  );
+}
+
+const [currentPage, setCurrentPage] = useState(1);
+const cardsPerPage = 3; 
+
+const indexOfLastCard = currentPage * cardsPerPage;
+const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+const currentCards = catalogue.slice(indexOfFirstCard, indexOfLastCard);
+
+const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+const pageNumbers = [];
+for (let i = 1; i <= Math.ceil(catalogue.length / cardsPerPage); i++) {
+  pageNumbers.push(i);
+}
 
   return (
     <>
@@ -132,15 +156,28 @@ useEffect(()=>{
 </div>
  </div>
  <div className='style-container'>
+
+
+
 <Container>
-  <Row>
-    {catalogue.map((info) => (
-      <Col className='my-2 d-flex justify-content-center aling-items-center' sm={"12"} md={"4"} lg={"4"} key={info._id}>
-        <CardC title={info.Nombre} imageUrl={info.Imagen}  idProduct={info._id} />
-      </Col>
-    ))}
-  </Row>
+<Row>
+  {currentCards.map((info) => (
+    <Col className='my-2 d-flex justify-content-center aling-items-center' sm={"12"} md={"4"} lg={"4"} key={info._id}>
+      <CardC title={info.Nombre} imageUrl={info.Imagen}  idProduct={info._id} />
+    </Col>
+  ))}
+</Row>
+
 </Container>
+ 
+<Pagination className='d-flex justify-content-center mt-5'>
+  {pageNumbers.map(number => (
+    <Pagination.Item key={number} active={number === currentPage} onClick={() => paginate(number)}>
+      {number}
+    </Pagination.Item>
+  ))}
+</Pagination>
+
       <FooterC />
       </div>
     </>

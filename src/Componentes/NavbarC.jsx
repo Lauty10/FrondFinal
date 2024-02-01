@@ -12,12 +12,15 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Table from 'react-bootstrap/Table';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
-
-
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+import axios from 'axios';
 
 
 const NavbarC = () => {
+  const [preference,setPreference]=useState(null)
+  initMercadoPago('YOUR_PUBLIC_KEY',{
+    locale:"es-AR"
+  });
   const rockData=JSON.parse(sessionStorage.getItem('idUsuario'))
   const navigate=useNavigate();
   const [barra, setBarra] = useState(false);
@@ -146,10 +149,25 @@ useEffect(()=>{
 },[])
 
 
-
-const handleCant=(ev)=>{
-console.log(ev)
+const createPrefance=async(nombre,precio)=>{
+  try {
+    const responseMp= await axiosUrl.post("/carr/pay",{
+      title:nombre,
+      quantity:1,
+      price:precio
+    })
+    return responseMp
+  } catch (error) {
+    console.log(error)
+  }
 }
+
+const handleBuy=async(nombre,precio)=>{
+  console.log(nombre);
+    const res= await createPrefance(nombre,precio)
+    window.location=`${res.data.res}`
+}
+
 
 const totalPrice = () => {
   let total = 0;
@@ -204,7 +222,7 @@ const deleteRock=async(id)=>{
             </div>
             <NavLink  to="/" className='text-rock'>Inicio</NavLink>
             <NavLink to="/sobreNosotros" className='text-rock'>Sobre mi</NavLink>
-            <NavLink to="/sobreNosotros" onClick={handleWhatsAppClick} className='text-rock'>Contacto</NavLink>
+            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock'>Contacto</NavLink>
           {token && role==="user" ?(
               <>   
               <NavLink to="/user" className='text-rock'>Tienda</NavLink>     
@@ -220,24 +238,25 @@ const deleteRock=async(id)=>{
           <tr>
           <th className='th-text'>Nombre</th>
           <th className='th-text'>Precio</th>
-          <th className='th-text'>Cantidad</th>
+          <th className='th-text'>Comprar</th>
           <th className='th-text'>Eliminar</th>
           </tr>
           </thead>
          <tbody>
          {carrRock.map((producto) => (
          <tr key={producto._id}>
-         <td className='title-carr'>{producto.Nombre}</td>
-         <td className='title-carr'>{producto.Precio}</td>
-         <td><input type="number" className='form-control'  onChange={handleCant}/></td>
-         <td><Button onClick={()=>deleteRock(producto._id)} className='my-3' variant='danger'>Eliminar</Button></td>
+         <td className='title-carr my-3'>{producto.Nombre}</td>
+         <td className='title-carr my-3'>{producto.Precio}</td>
+         <td><Button  variant='primary' onClick={()=>handleBuy(producto.Nombre,producto.Precio)}>Comprar</Button></td>
+         <td><Button onClick={()=>deleteRock(producto._id)}  variant='danger'>Eliminar</Button></td>
         </tr>
           ))}
        </tbody>
     </Table>
     {
-      <h2 className='title-carr mt-5' >Precio total a pagar: ${totalPrice()}</h2>
+      <h2 className='title-carr mt-5' >Total: ${totalPrice()}</h2>
     }
+    <Wallet initialization={{ preferenceId: preference }} customization={{ texts:{ valueProp: 'smart_option'}}} />
            </Offcanvas.Body>
            </Offcanvas>
               </>

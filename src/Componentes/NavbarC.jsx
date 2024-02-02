@@ -13,7 +13,7 @@ import Table from 'react-bootstrap/Table';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-import axios from 'axios';
+
 
 
 const NavbarC = () => {
@@ -188,7 +188,7 @@ const deleteRock=async(id)=>{
       }
     };
     const confirmDeleteRock=confirm('Estas seguro de eliminar este producto?')
-    if (condition) {
+    if (confirmDeleteRock) {
       const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
       if (rockDelte.status===200) {
         alert("Producto eliminado")
@@ -251,7 +251,7 @@ const deleteRock=async(id)=>{
          <td className='title-carr my-3'>{producto.Nombre}</td>
          <td className='title-carr my-3'>{producto.Precio}</td>
          <td><Button  variant='primary' onClick={()=>handleBuy(producto.Nombre,producto.Precio)}>Comprar</Button></td>
-         <td><Button onClick={()=>deleteRock(producto._id)}  variant='danger'>Eliminar</Button></td>
+         <td><Button onClick={()=>deleteRock(producto._id)} variant='danger'>Borrar</Button></td>
         </tr>
           ))}
        </tbody>

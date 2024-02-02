@@ -23,38 +23,46 @@ const LoginPage = () => {
     }
 
     const loginRockUser= async (ev)=>{
-    ev.preventDefault()
-    const userLogin= await axiosUrl.post("/usuarios/login",{
-     Correo:loginRock.correoRock,
-     Contrasenia:loginRock.passRock
-    },headboard)
-    if (userLogin.data.Role==="user") {
-      sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
-      sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
-      sessionStorage.setItem("idUsuario",JSON.stringify(userLogin.data.idUsuario))
-      Swal.fire({
-        title: "Iniciando Sesion...",
-        text: "Los redondos una de las bandas mas convocantes de Argentina",
-        imageUrl: Redondos,
-        imageWidth: 400,
-        imageHeight: 200,
-      });
-      setTimeout(()=>{
-        navigate("/user")
-      },3000)
-    }else{
-      sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
-      sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
-      sessionStorage.setItem("idUsuario",JSON.stringify(userLogin.data.idUsuario))
-      Swal.fire({
-        icon: "success",
-        title: "Bienvenido Administrador",
-        text: "Iniciando sesion...",
-      });
-      setTimeout(()=>{
-        navigate("/admin")
-      },3000)
-    }  
+          ev.preventDefault()
+      try {
+        const userLogin= await axiosUrl.post("/usuarios/login",{
+          Correo:loginRock.correoRock,
+          Contrasenia:loginRock.passRock
+         },headboard)
+         if (userLogin.data.Role==="user") {
+           sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
+           sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
+           sessionStorage.setItem("idUsuario",JSON.stringify(userLogin.data.idUsuario))
+           Swal.fire({
+             title: "Iniciando Sesion...",
+             text: "Los redondos una de las bandas mas convocantes de Argentina",
+             imageUrl: Redondos,
+             imageWidth: 400,
+             imageHeight: 200,
+           });
+           setTimeout(()=>{
+             navigate("/user")
+           },3000)
+         }else{
+           sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
+           sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
+           sessionStorage.setItem("idUsuario",JSON.stringify(userLogin.data.idUsuario))
+           Swal.fire({
+             icon: "success",
+             title: "Bienvenido Administrador",
+             text: "Iniciando sesion...",
+           });
+           setTimeout(()=>{
+             navigate("/admin")
+           },3000)
+         }  
+      } catch (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: "Por favor, intentalo nuevamente",
+        });
+      }
     }
 
 

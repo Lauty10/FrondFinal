@@ -187,10 +187,13 @@ const deleteRock=async(id)=>{
         'Authorization': `${token}`
       }
     };
-    const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
-    if (rockDelte.status===200) {
-      alert("Producto eliminado")
-      window.location.reload()
+    const confirmDeleteRock=confirm('Estas seguro de eliminar este producto?')
+    if (condition) {
+      const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
+      if (rockDelte.status===200) {
+        alert("Producto eliminado")
+        window.location.reload()
+      }
     }
   } catch (error) {
     console.log(error)

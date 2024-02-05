@@ -10,6 +10,17 @@
     flex-direction: column; 
 }
 
+.pass-rock{
+    background-color: transparent;
+    border: transparent;
+    font-size: 20px;
+}
+
+.pass-rock:hover{
+    color: red;
+    background-color: transparent;
+}
+
 
 html, body {
     min-height: 100%;

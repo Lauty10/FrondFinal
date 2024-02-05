@@ -13,7 +13,7 @@ import Table from 'react-bootstrap/Table';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-import axios from 'axios';
+
 
 
 const NavbarC = () => {
@@ -187,10 +187,13 @@ const deleteRock=async(id)=>{
         'Authorization': `${token}`
       }
     };
-    const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
-    if (rockDelte.status===200) {
-      alert("Producto eliminado")
-      window.location.reload()
+    const confirmDeleteRock=confirm('Estas seguro de eliminar este producto?')
+    if (confirmDeleteRock) {
+      const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
+      if (rockDelte.status===200) {
+        alert("Producto eliminado")
+        window.location.reload()
+      }
     }
   } catch (error) {
     console.log(error)
@@ -230,7 +233,7 @@ const deleteRock=async(id)=>{
               <NavLink onClick={handleShow} className='text-rock'>Carrito</NavLink>
             <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-            <Offcanvas.Title id='style-carr-title' className='title-carr'>Carrito de compras</Offcanvas.Title>
+            <Offcanvas.Title id='style-carr-title' className='title-carr'>Carrito Full Rock</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className='style-carr'>
             <Table striped bordered hover>
@@ -248,7 +251,7 @@ const deleteRock=async(id)=>{
          <td className='title-carr my-3'>{producto.Nombre}</td>
          <td className='title-carr my-3'>{producto.Precio}</td>
          <td><Button  variant='primary' onClick={()=>handleBuy(producto.Nombre,producto.Precio)}>Comprar</Button></td>
-         <td><Button onClick={()=>deleteRock(producto._id)}  variant='danger'>Eliminar</Button></td>
+         <td><Button onClick={()=>deleteRock(producto._id)} variant='danger'>Borrar</Button></td>
         </tr>
           ))}
        </tbody>

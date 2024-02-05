@@ -30,9 +30,8 @@ const{NombreRock,NacionalidadRock,CorreoRock,ContraseniaRock,RcontraseniaRock}=f
 if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !RcontraseniaRock) {
     Swal.fire({
         icon: "error",
-        title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>'
+        title: "Error!",
+        text: "Por favorr completa todos los campos!",
       });
 }else if (ContraseniaRock===RcontraseniaRock){
     const RockRegister= await fetch("http://localhost:3001/usuarios",{
@@ -65,7 +64,6 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
         icon: "error",
         title: "Oops...",
         text: "Las contrasenias no coinciden!",
-        footer: '<a href="#">Why do I have this issue?</a>'
       });
 }
 

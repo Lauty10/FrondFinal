@@ -233,7 +233,7 @@ const deleteRock=async(id)=>{
               <NavLink onClick={handleShow} className='text-rock'>Carrito</NavLink>
             <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-            <Offcanvas.Title id='style-carr-title' className='title-carr'>Carrito de compras</Offcanvas.Title>
+            <Offcanvas.Title id='style-carr-title' className='title-carr'>Carrito Full Rock</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className='style-carr'>
             <Table striped bordered hover>

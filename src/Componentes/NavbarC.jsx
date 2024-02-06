@@ -227,9 +227,9 @@ const deleteRock=async(id)=>{
             <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock mt-2'>Contacto</NavLink>
           {token && role==="user" ?(
               <>   
-              <NavLink to="/user" className='text-rock'>Tienda</NavLink>     
-              <NavLink to="/fav" className='text-rock'>Favoritos</NavLink>
-              <NavLink onClick={handleShow} className='text-rock'>Carrito</NavLink>
+              <NavLink to="/user" className='text-rock mt-2'>Tienda</NavLink>     
+              <NavLink to="/fav" className='text-rock mt-2'>Favoritos</NavLink>
+              <NavLink onClick={handleShow} className='text-rock mt-2'>Carrito</NavLink>
             <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
             <Offcanvas.Title id='style-carr-title' className='title-carr-pp justify-content-center aling-items-center'>Carrito Full Rock</Offcanvas.Title>

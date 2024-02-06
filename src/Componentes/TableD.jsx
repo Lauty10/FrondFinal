@@ -97,7 +97,7 @@ const TableD = ({data}) => {
   <td className='font-style'>{info.Role}</td>
   <td>
   <>
-      <Button className=' buttonD' variant="warning" onClick={()=>handleShow(info._id)}>
+      <Button className='buttonD' variant="warning" onClick={()=>handleShow(info._id)}>
         Editar
       </Button>
 

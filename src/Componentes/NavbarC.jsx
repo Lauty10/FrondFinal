@@ -133,7 +133,7 @@ try {
 const [carrRock,setCarrRock]=useState([])
 
 const carrMe=async()=>{
-  const token=sessionStorage.getItem('token')
+  const token=JSON.parse(sessionStorage.getItem('token'))
   const config = {
       headers: {
         'Authorization': `${token}`
@@ -222,9 +222,9 @@ const deleteRock=async(id)=>{
                 />
               )}
             </div>
-            <NavLink  to="/" className='text-rock'>Inicio</NavLink>
-            <NavLink to="/sobreNosotros" className='text-rock'>Sobre mi</NavLink>
-            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock'>Contacto</NavLink>
+            <NavLink  to="/" className='text-rock mt-2'>Inicio</NavLink>
+            <NavLink to="/sobreNosotros" className='text-rock mt-2'>Sobre mi</NavLink>
+            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock mt-2'>Contacto</NavLink>
           {token && role==="user" ?(
               <>   
               <NavLink to="/user" className='text-rock'>Tienda</NavLink>     
@@ -267,7 +267,7 @@ const deleteRock=async(id)=>{
               </>
           ):token && role==="admin" && AdminPageProduct=="/admin" ? (
             <>
-            <NavLink to="/userAdmin" className='text-rock'>Usuarios</NavLink>        
+            <NavLink to="/userAdmin" className='text-rock mt-2'>Usuarios</NavLink>        
            <Button className='button-product me-auto' variant="danger" onClick={handleShow}>
            Crear un producto
            </Button>
@@ -314,7 +314,7 @@ const deleteRock=async(id)=>{
             </>
           ):token && role==="admin" && AdminPageProduct=="/userAdmin"?(
             <>
-            <NavLink to="/admin" className='text-rock'>Productos</NavLink>        
+            <NavLink to="/admin" className='text-rock mt-2'>Productos</NavLink>        
             <Button  className='button-product me-auto'  onClick={handleShow}>
             Crear un usuario
             </Button>

@@ -32,6 +32,7 @@
         flex-direction: column;
         margin: 0;
         margin-top: 8px;
+        width: 5rem;
     }
 
     .button-flex button {

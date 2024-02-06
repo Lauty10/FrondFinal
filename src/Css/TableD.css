@@ -30,6 +30,7 @@ background-image: url(../Images/FondoAdmin.webp);
     .buttonD{
         display: flex;
         flex-direction: column;
+        width: 4rem;
     }
    
     .style-font{

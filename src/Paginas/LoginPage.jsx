@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import NavbarC from '../Componentes/NavbarC';
@@ -103,6 +103,35 @@ const LoginPage = () => {
       }
     }
 
+    useEffect(()=>{
+      const LoginRockColor=document.getElementById('LoginRockColor');
+      const PassRockColor=document.getElementById('PassRockColor');
+
+      const ColorRedLogin=(ev)=>{
+        if (ev.target.value==='') {
+          ev.target.classList.add('red-color-style')
+        }else{
+          ev.target.classList.remove('red-color-style')
+        }
+
+      }
+
+      const ColorRedPass=(ev)=>{
+        if (ev.target.value==='') {
+          ev.target.classList.add('red-color-style')
+        }else{
+          ev.target.classList.remove('red-color-style')
+        }
+
+      }
+
+
+      LoginRockColor.addEventListener('input',ColorRedLogin);
+      PassRockColor.addEventListener('input',ColorRedPass)
+
+    },[])
+
+   
 
 
 
@@ -115,12 +144,12 @@ const LoginPage = () => {
       <h2 className='h2-rock-login'>Iniciar Sesion</h2>
     <Form.Group className="mb-3" controlId="loginCorreo">
       <Form.Label className='text-style-login' >Correo</Form.Label>
-      <Form.Control type="email" onChange={loginChange} value={loginRock.correoRock}  placeholder="Ingrese su correo" name='correoRock'/>
+      <Form.Control id='LoginRockColor' type="email" onChange={loginChange} value={loginRock.correoRock}  placeholder="Ingrese su correo" name='correoRock'/>
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="loginPass">
       <Form.Label className='text-style-login'>Contraseña</Form.Label>
-      <Form.Control type="password"  onChange={loginChange} value={loginRock.passRock} placeholder="Ingrese una contraseña" name='passRock' />
+      <Form.Control id='PassRockColor' type="password"  onChange={loginChange} value={loginRock.passRock} placeholder="Ingrese una contraseña" name='passRock' />
     </Form.Group>
 
     <div className='d-flex justify-content-center'>
@@ -159,7 +188,7 @@ const LoginPage = () => {
       </Modal>
     </div>
 
-    <Button className='button-style mt-2 mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
+    <Button id='sessionLogin' className='button-style mt-2 mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
       Iniciar Sesion
     </Button>
   </Form>

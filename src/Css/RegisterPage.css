@@ -53,6 +53,12 @@
   padding: 30px;
 }
 
+.input-error {
+  border: 2px solid red;
+  background-color: red;
+}
+
+
 
 @media (max-width: 590px) {
 

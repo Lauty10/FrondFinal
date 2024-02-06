@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
@@ -69,6 +69,67 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
 
 }
 
+useEffect(()=>{
+   const NameRock=document.getElementById('NameRock')
+const NacionalityRock=document.getElementById('NacionalityRock')
+const EmailRock=document.getElementById('EmailRock')
+const ContraRock=document.getElementById('ContraRock')
+const RcontraRock=document.getElementById('RcontraRock')
+
+
+
+const NameRockColor=(ev)=>{
+   if (ev.target.value==='') {
+      ev.target.classList.add('input-error');
+   }else{
+      ev.target.classList.remove('input-error');
+   }
+}
+
+const NacionalityRockColor=(ev)=>{
+   if (ev.target.value==='') {
+      ev.target.classList.add('input-error');
+   }else{
+      ev.target.classList.remove('input-error');
+   }
+}
+
+
+const EmailRockColor=(ev)=>{
+   if (ev.target.value==='') {
+      ev.target.classList.add('input-error');
+   }else{
+      ev.target.classList.remove('input-error');
+   }
+}
+
+
+const ContraRockColor=(ev)=>{
+   if (ev.target.value==='') {
+      ev.target.classList.add('input-error');
+   }else{
+      ev.target.classList.remove('input-error');
+   }
+}
+
+
+const RContraRockColor=(ev)=>{
+   if (ev.target.value==='') {
+      ev.target.classList.add('input-error');
+   }else{
+      ev.target.classList.remove('input-error');
+   }
+}
+
+NameRock.addEventListener('input',NameRockColor)
+NacionalityRock.addEventListener('input',NacionalityRockColor)
+EmailRock.addEventListener('input',EmailRockColor)
+ContraRock.addEventListener('input',ContraRockColor)
+RcontraRock.addEventListener('input',RContraRockColor)
+
+},[])
+
+
 
   return (
  <>
@@ -82,27 +143,27 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
       <h2 className='h2-rock-register'>Registrarse</h2>
       <Form.Group className="mb-3" controlId="NombreInfo">
          <Form.Label className='register-style'>Nombre</Form.Label>
-         <Form.Control type="text" value={formRegister.Nombre} onChange={registerChange} placeholder="Ingrese su Nombre" name='NombreRock' />
+         <Form.Control id='NameRock' type="text" value={formRegister.Nombre} onChange={registerChange} placeholder="Ingrese su Nombre" name='NombreRock' />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="nacionalidadInfo">
          <Form.Label className='register-style'>Nacionalidad</Form.Label>
-         <Form.Control type="text" value={formRegister.Nacionalidad} onChange={registerChange} placeholder="Ingrese su nacionalidad" name='NacionalidadRock' />
+         <Form.Control id='NacionalityRock' type="text" value={formRegister.Nacionalidad} onChange={registerChange} placeholder="Ingrese su nacionalidad" name='NacionalidadRock' />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="correoInfo">
          <Form.Label className='register-style'>Correo Electronico</Form.Label>
-         <Form.Control type="email" value={formRegister.Correo} onChange={registerChange} placeholder="Ingrese su correo" name='CorreoRock' />
+         <Form.Control id='EmailRock' type="email" value={formRegister.Correo} onChange={registerChange} placeholder="Ingrese su correo" name='CorreoRock' />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="passInfo">
          <Form.Label className='register-style'>Contraseña</Form.Label>
-         <Form.Control type="password" value={formRegister.Contrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='ContraseniaRock' />
+         <Form.Control id='ContraRock' type="password" value={formRegister.Contrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='ContraseniaRock' />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="rPassInfo">
          <Form.Label className='register-style'>Repetir Contraseña</Form.Label>
-         <Form.Control type="password" value={formRegister.Rcontrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='RcontraseniaRock' />
+         <Form.Control id='RcontraRock' type="password" value={formRegister.Rcontrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='RcontraseniaRock' />
       </Form.Group>
       <Button className='register-buttom mt-5 mx-auto w-75' onClick={goRegister} variant="danger" type="submit">
          Registrarse

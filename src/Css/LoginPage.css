@@ -59,6 +59,11 @@ html, body {
     color: red;
 }
 
+.red-color-style{
+    border: 2px solid red;
+    background-color: red;
+}
+
 @media(max-width:688px){
     .h2-rock-login{
         font-family: 'Rock Salt', cursive;

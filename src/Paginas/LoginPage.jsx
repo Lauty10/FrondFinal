@@ -118,7 +118,7 @@ const LoginPage = () => {
       <Form.Control type="email" onChange={loginChange} value={loginRock.correoRock}  placeholder="Ingrese su correo" name='correoRock'/>
     </Form.Group>
 
-    <Form.Group className="mb-5" controlId="loginPass">
+    <Form.Group className="mb-3" controlId="loginPass">
       <Form.Label className='text-style-login'>Contraseña</Form.Label>
       <Form.Control type="password"  onChange={loginChange} value={loginRock.passRock} placeholder="Ingrese una contraseña" name='passRock' />
     </Form.Group>
@@ -159,7 +159,7 @@ const LoginPage = () => {
       </Modal>
     </div>
 
-    <Button className='button-style mt-5 mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
+    <Button className='button-style mt-2 mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
       Iniciar Sesion
     </Button>
   </Form>

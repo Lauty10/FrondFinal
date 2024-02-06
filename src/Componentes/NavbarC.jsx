@@ -149,12 +149,12 @@ useEffect(()=>{
 },[])
 
 
-const createPrefance=async(nombre,precio)=>{
+const createPrefance=async()=>{
   try {
     const responseMp= await axiosUrl.post("/carr/pay",{
-      title:nombre,
+      title:'Tienda Full Rock',
       quantity:1,
-      price:precio
+      price:totalPrice()
     })
     return responseMp
   } catch (error) {
@@ -162,9 +162,8 @@ const createPrefance=async(nombre,precio)=>{
   }
 }
 
-const handleBuy=async(nombre,precio)=>{
-  console.log(nombre);
-    const res= await createPrefance(nombre,precio)
+const handleBuy=async()=>{
+    const res= await createPrefance()
     window.location=`${res.data.res}`
 }
 
@@ -233,7 +232,7 @@ const deleteRock=async(id)=>{
               <NavLink onClick={handleShow} className='text-rock'>Carrito</NavLink>
             <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-            <Offcanvas.Title id='style-carr-title' className='title-carr'>Carrito Full Rock</Offcanvas.Title>
+            <Offcanvas.Title id='style-carr-title' className='title-carr-pp justify-content-center aling-items-center'>Carrito Full Rock</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className='style-carr'>
             <Table striped bordered hover>
@@ -241,7 +240,7 @@ const deleteRock=async(id)=>{
           <tr>
           <th className='th-text'>Nombre</th>
           <th className='th-text'>Precio</th>
-          <th className='th-text'>Comprar</th>
+          <th className='th-text'>Marca</th>
           <th className='th-text'>Eliminar</th>
           </tr>
           </thead>
@@ -250,14 +249,17 @@ const deleteRock=async(id)=>{
          <tr key={producto._id}>
          <td className='title-carr my-3'>{producto.Nombre}</td>
          <td className='title-carr my-3'>{producto.Precio}</td>
-         <td><Button  variant='primary' onClick={()=>handleBuy(producto.Nombre,producto.Precio)}>Comprar</Button></td>
+         <td className='title-carr my-3'>{producto.Marca}</td>
          <td><Button onClick={()=>deleteRock(producto._id)} variant='danger'>Borrar</Button></td>
         </tr>
           ))}
        </tbody>
     </Table>
     {
-      <h2 className='title-carr mt-5' >Total: ${totalPrice()}</h2>
+      <>
+      <h2 className='title-carr-price mt-5 d-flex justify-content-center' >Total a pagar : ${totalPrice()}</h2>
+      <Button onClick={handleBuy} className='mt-5 d-flex justify-content-center aling-items-center w-100' variant='primary'>Pagar total</Button>
+      </>
     }
     <Wallet initialization={{ preferenceId: preference }} customization={{ texts:{ valueProp: 'smart_option'}}} />
            </Offcanvas.Body>

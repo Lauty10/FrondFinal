@@ -37,12 +37,14 @@ const TableD = ({data}) => {
     const postEdit= async (ev)=>{
         ev.preventDefault()
         try {
+          const token=JSON.parse(sessionStorage.getItem("token"))||"";
+          const config=configToken(token)
             const RockFull= await axiosUrl.put(`/usuarios/${edit._id}`,{
                 Nombre:edit.Nombre,
                 Correo:edit.Correo,
                 Nacionalidad:edit.Nacionalidad,
                 Role:edit.Role
-            },configToken)
+            },config)
             if (RockFull.status===200) {
                 alert("Producto Actualizado")
                 window.location.reload()
@@ -56,7 +58,9 @@ const TableD = ({data}) => {
         try {
             const confirmDelete=confirm("Seguro deseas eliminar este usuario?")
             if (confirmDelete) {
-                const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,configToken)
+              const token=JSON.parse(sessionStorage.getItem("token"))||"";
+              const config=configToken(token)
+                const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,config)
                 if (RockDelete.status===200) {
                     alert("Usuario eliminado correctamente")
                     location.reload()

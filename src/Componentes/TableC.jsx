@@ -36,13 +36,15 @@ const TableC = ({ data }) => {
     const editProductRock = async (ev) => {
       ev.preventDefault();
       try {
+        const token=JSON.parse(sessionStorage.getItem("token"))||"";
+        const config=configToken(token)
         const sendPost = await axiosUrl.put(`/productos/${state._id}`, {
           Nombre: state.Nombre,
           Marca: state.Marca,
           Descripcion:state.Descripcion,
           Precio: state.Precio,
           Imagen: state.Imagen
-        },configToken);
+        },config);
     
         if (sendPost.status === 200) {
           alert("Producto actualizado");
@@ -57,7 +59,9 @@ const TableC = ({ data }) => {
      try {
       const confirmDelete=confirm("Estas seguro de borrar este producto?")
       if (confirmDelete) {
-        const rockDelete= await axiosUrl.delete(`/productos/${id}`,configToken)
+        const token=JSON.parse(sessionStorage.getItem("token"))||"";
+        const config=configToken(token)
+        const rockDelete= await axiosUrl.delete(`/productos/${id}`,config)
         if (rockDelete.status===200) {
           alert("Producto eliminado correctamente")
           location.reload()

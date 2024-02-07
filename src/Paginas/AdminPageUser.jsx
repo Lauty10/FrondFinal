@@ -9,7 +9,9 @@ import FooterC from '../Componentes/FooterC'
 const AdminPageUser = () => {
   const [userData,setUserData]=useState([])
   const rockUser=async()=>{
-    const allRockU= await axiosUrl.get("/usuarios",configToken)
+    const token=JSON.parse(sessionStorage.getItem("token"))||"";
+    const config=configToken(token)
+    const allRockU= await axiosUrl.get("/usuarios",config)
     setUserData(allRockU.data.getUserAll)
   }
 

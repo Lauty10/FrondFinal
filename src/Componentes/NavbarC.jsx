@@ -76,13 +76,15 @@ const NavbarC = () => {
       alert("Por favor complete todos los campos!")
       return
     }else{
+        const token=JSON.parse(sessionStorage.getItem("token"))||"";
+        const config=configToken(token)
       const data= new FormData();
       data.append("Nombre",Nombre)
       data.append("Marca",Marca)
       data.append("Precio",Precio)
       data.append("Descripcion",Descripcion)
       data.append("Imagen",imagen)
-      const createProductRock=await axiosUrl.post("/productos",data,configToken);
+      const createProductRock=await axiosUrl.post("/productos",data,config);
       console.log(createProductRock)
       if (createProductRock.status===200) {
         alert("Producto creado")
@@ -114,13 +116,15 @@ try {
     alert("Completa todos los campos")
     return
   }else{
+        const token=JSON.parse(sessionStorage.getItem("token"))||"";
+        const config=configToken(token)
     const createUserRock=await axiosUrl.post("/usuarios",{
       Nombre:newUser.Nombre,
       Correo:newUser.Correo,
       Nacionalidad:newUser.Nacionalidad,
       Role:newUser.Role,
       Contrasenia:newUser.Contrasenia
-    },configToken)
+    },config)
     if (createUserRock.status===200) {
       alert("Usuario creado")
       window.location.reload()
@@ -134,7 +138,9 @@ try {
 const [carrRock,setCarrRock]=useState([])
 
 const carrMe=async()=>{
-  const rockCarrMe=await axiosUrl.get("/carr",configToken)
+  const token=JSON.parse(sessionStorage.getItem("token"))||"";
+  const config=configToken(token)
+  const rockCarrMe=await axiosUrl.get("/carr",config)
   const rockCarrIndividual=rockCarrMe.data.carrGet.find((data)=>data.idUsuario===rockData)
   setCarrRock(rockCarrIndividual.productos)
 }
@@ -174,15 +180,11 @@ const totalPrice = () => {
 };
 
 const deleteRock=async(id)=>{
-  const token=sessionStorage.getItem('token')
   try {
-    const config = {
-      headers: {
-        'Authorization': `${token}`
-      }
-    };
     const confirmDeleteRock=confirm('Estas seguro de eliminar este producto?')
     if (confirmDeleteRock) {
+        const token=JSON.parse(sessionStorage.getItem("token"))||"";
+        const config=configToken(token)
       const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
       if (rockDelte.status===200) {
         alert("Producto eliminado")

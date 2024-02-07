@@ -6,10 +6,8 @@ import "../Css/LoginPage.css"
 import Swal from 'sweetalert2'
 import Redondos from "../Images/REDONDOS.jpg"
 import FooterC from '../Componentes/FooterC';
-
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
-import axiosUrl, { configToken } from '../helps/axiosBase';
 
 
 

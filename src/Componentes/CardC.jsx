@@ -2,21 +2,15 @@
 import Card from 'react-bootstrap/Card';
 import "../Css/CardC.css"
 import { Link } from 'react-router-dom';
-import axiosUrl from '../helps/axiosBase';
+import axiosUrl, { configToken } from '../helps/axiosBase';
 
 
 
 const CardC = ({ title, imageUrl, idProduct, idPage, idDelete}) => {
-  const token=sessionStorage.getItem('token')
   const deleteProduct=async(id)=>{
-    const config = {
-      headers: {
-        'Authorization': `${token}`
-      }
-    };
-    const deleteProduct=await axiosUrl.delete(`/fav/${id}`,config)
+    const deleteProduct=await axiosUrl.delete(`/fav/${id}`,configToken)
     if (deleteProduct.status===200) {
-      alert("Producto de favoritos")
+      alert("Producto eliminado de favoritos")
       window.location.reload()
     }
   }

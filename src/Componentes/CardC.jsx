@@ -8,7 +8,9 @@ import axiosUrl, { configToken } from '../helps/axiosBase';
 
 const CardC = ({ title, imageUrl, idProduct, idPage, idDelete}) => {
   const deleteProduct=async(id)=>{
-    const deleteProduct=await axiosUrl.delete(`/fav/${id}`,configToken)
+    const token=JSON.parse(sessionStorage.getItem("token"))||"";
+    const config=configToken(token)
+    const deleteProduct=await axiosUrl.delete(`/fav/${id}`,config)
     if (deleteProduct.status===200) {
       alert("Producto eliminado de favoritos")
       window.location.reload()

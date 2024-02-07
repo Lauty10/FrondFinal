@@ -76,14 +76,14 @@ const NavbarC = () => {
       alert("Por favor complete todos los campos!")
       return
     }else{
-        const token=JSON.parse(sessionStorage.getItem("token"))||"";
-        const config=configToken(token)
       const data= new FormData();
       data.append("Nombre",Nombre)
       data.append("Marca",Marca)
       data.append("Precio",Precio)
       data.append("Descripcion",Descripcion)
       data.append("Imagen",imagen)
+      const token=JSON.parse(sessionStorage.getItem("token"))||"";
+      const config=configToken(token)
       const createProductRock=await axiosUrl.post("/productos",data,config);
       console.log(createProductRock)
       if (createProductRock.status===200) {

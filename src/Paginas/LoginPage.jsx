@@ -6,9 +6,10 @@ import "../Css/LoginPage.css"
 import Swal from 'sweetalert2'
 import Redondos from "../Images/REDONDOS.jpg"
 import FooterC from '../Componentes/FooterC';
-import axiosUrl, { headboard } from '../helps/axiosBase';
+
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
+import axiosUrl, { configToken } from '../helps/axiosBase';
 
 
 
@@ -30,7 +31,7 @@ const LoginPage = () => {
         const userLogin= await axiosUrl.post("/usuarios/login",{
           Correo:loginRock.correoRock,
           Contrasenia:loginRock.passRock
-         },headboard)
+         },configToken)
          if (userLogin.data.Role==="user") {
            sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
            sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))
@@ -89,7 +90,7 @@ const LoginPage = () => {
           const passRockNew= await axiosUrl.put(`/usuarios/pass`,{
             Correo:newpass.Correo,
             Contrasenia:newpass.Contrasenia,
-          })
+          },configToken)
           if (passRockNew.status===200) {
             Swal.fire({
               icon: "success",
@@ -142,12 +143,12 @@ const LoginPage = () => {
     <div className='d-flex justify-content-center mt-5'>
     <Form className='mt-5 style-form'>
       <h2 className='h2-rock-login'>Iniciar Sesion</h2>
-    <Form.Group className="mb-3" controlId="loginCorreo">
+    <Form.Group className="mb-3" >
       <Form.Label className='text-style-login' >Correo</Form.Label>
       <Form.Control id='LoginRockColor' type="email" onChange={loginChange} value={loginRock.correoRock}  placeholder="Ingrese su correo" name='correoRock'/>
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="loginPass">
+    <Form.Group className="mb-3">
       <Form.Label className='text-style-login'>Contraseña</Form.Label>
       <Form.Control id='PassRockColor' type="password"  onChange={loginChange} value={loginRock.passRock} placeholder="Ingrese una contraseña" name='passRock' />
     </Form.Group>

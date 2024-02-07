@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import axiosUrl from '../helps/axiosBase'
+import axiosUrl, { configToken } from '../helps/axiosBase'
 import TableC from '../Componentes/TableC'
 import NavbarC from '../Componentes/NavbarC'
 import FooterC from '../Componentes/FooterC'
@@ -12,7 +12,7 @@ const AdminPage = () => {
   const [rockProduct,setRockProduct]=useState([])
 
   const rockAllP=async()=>{
-    const dataProductRock= await axiosUrl.get("/productos")
+    const dataProductRock= await axiosUrl.get("/productos",configToken)
     setRockProduct(dataProductRock.data.getAllProducts)
   }
 

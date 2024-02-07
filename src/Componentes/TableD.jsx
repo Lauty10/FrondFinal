@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import axiosUrl, { headboard } from '../helps/axiosBase';
+import axiosUrl, { configToken } from '../helps/axiosBase';
+
 
 
 
@@ -35,19 +36,13 @@ const TableD = ({data}) => {
 
     const postEdit= async (ev)=>{
         ev.preventDefault()
-        const token=sessionStorage.getItem('token')
         try {
-          const config = {
-            headers: {
-              'Authorization': `${token}`
-            }
-          };
             const RockFull= await axiosUrl.put(`/usuarios/${edit._id}`,{
                 Nombre:edit.Nombre,
                 Correo:edit.Correo,
                 Nacionalidad:edit.Nacionalidad,
                 Role:edit.Role
-            },config,headboard)
+            },configToken)
             if (RockFull.status===200) {
                 alert("Producto Actualizado")
                 window.location.reload()
@@ -58,16 +53,10 @@ const TableD = ({data}) => {
     }
 
     const deleteUser=async(id)=>{
-      const token=sessionStorage.getItem('token')
         try {
-          const config = {
-            headers: {
-              'Authorization': `${token}`
-            }
-          };
             const confirmDelete=confirm("Seguro deseas eliminar este usuario?")
             if (confirmDelete) {
-                const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,config)
+                const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,configToken)
                 if (RockDelete.status===200) {
                     alert("Usuario eliminado correctamente")
                     location.reload()

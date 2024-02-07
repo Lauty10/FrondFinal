@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import axiosUrl, { headboard } from '../helps/axiosBase';
+import axiosUrl, { configToken } from '../helps/axiosBase';
 
 
 const TableC = ({ data }) => {
@@ -34,21 +34,15 @@ const TableC = ({ data }) => {
     }
 
     const editProductRock = async (ev) => {
-      const token=sessionStorage.getItem('token')
       ev.preventDefault();
       try {
-        const config = {
-          headers: {
-            'Authorization': `${token}`
-          }
-        };
         const sendPost = await axiosUrl.put(`/productos/${state._id}`, {
           Nombre: state.Nombre,
           Marca: state.Marca,
           Descripcion:state.Descripcion,
           Precio: state.Precio,
           Imagen: state.Imagen
-        },config,headboard);
+        },configToken);
     
         if (sendPost.status === 200) {
           alert("Producto actualizado");
@@ -60,16 +54,10 @@ const TableC = ({ data }) => {
     };
 
     const deleteProduct= async (id)=>{
-      const token=sessionStorage.getItem('token')
      try {
-      const config = {
-        headers: {
-          'Authorization': `${token}`
-        }
-      };
       const confirmDelete=confirm("Estas seguro de borrar este producto?")
       if (confirmDelete) {
-        const rockDelete= await axiosUrl.delete(`/productos/${id}`,config)
+        const rockDelete= await axiosUrl.delete(`/productos/${id}`,configToken)
         if (rockDelete.status===200) {
           alert("Producto eliminado correctamente")
           location.reload()

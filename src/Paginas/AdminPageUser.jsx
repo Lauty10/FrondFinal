@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavbarC from '../Componentes/NavbarC'
-import axiosUrl from '../helps/axiosBase'
+import axiosUrl, { configToken } from '../helps/axiosBase'
 import { Col, Container, Row } from 'react-bootstrap'
 import TableD from '../Componentes/TableD'
 import "../Css/TableD.css"
@@ -8,14 +8,8 @@ import FooterC from '../Componentes/FooterC'
 
 const AdminPageUser = () => {
   const [userData,setUserData]=useState([])
-  const token=sessionStorage.getItem('token')
   const rockUser=async()=>{
-    const config = {
-      headers: {
-        'Authorization': `${token}`
-      }
-    };
-    const allRockU= await axiosUrl.get("/usuarios",config)
+    const allRockU= await axiosUrl.get("/usuarios",configToken)
     setUserData(allRockU.data.getUserAll)
   }
 

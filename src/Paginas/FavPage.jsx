@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axiosUrl from '../helps/axiosBase'
+import axiosUrl, { configToken } from '../helps/axiosBase'
 import NavbarC from '../Componentes/NavbarC'
 import { Col, Container, Row } from 'react-bootstrap';
 import FooterC from '../Componentes/FooterC';
@@ -12,16 +12,8 @@ const FavPage = () => {
     const[productFav,setProductFav]=useState([])
 
     const getFavRock=async()=>{
-        const token=sessionStorage.getItem('token')
-        const config = {
-            headers: {
-              'Authorization': `${token}`
-            }
-          };
-        const rockFav= await axiosUrl.get("/fav",config)
-
+        const rockFav= await axiosUrl.get("/fav",configToken)
         const findRock=rockFav.data.getAllFav.find((data)=>data.idUsuario===rockData)
-
         setProductFav(findRock.favoritos)
     }
 

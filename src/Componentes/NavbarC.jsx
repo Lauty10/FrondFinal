@@ -7,12 +7,13 @@ import '../Css/NavbarC.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import axiosUrl, { headboard } from '../helps/axiosBase';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Table from 'react-bootstrap/Table';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+import { config } from '@fortawesome/fontawesome-svg-core';
+import axiosUrl, { configToken } from '../helps/axiosBase';
 
 
 
@@ -81,7 +82,7 @@ const NavbarC = () => {
       data.append("Precio",Precio)
       data.append("Descripcion",Descripcion)
       data.append("Imagen",imagen)
-      const createProductRock=await axiosUrl.post("/productos",data,headboard);
+      const createProductRock=await axiosUrl.post("/productos",data,configToken);
       console.log(createProductRock)
       if (createProductRock.status===200) {
         alert("Producto creado")
@@ -119,7 +120,7 @@ try {
       Nacionalidad:newUser.Nacionalidad,
       Role:newUser.Role,
       Contrasenia:newUser.Contrasenia
-    },headboard)
+    },configToken)
     if (createUserRock.status===200) {
       alert("Usuario creado")
       window.location.reload()
@@ -133,13 +134,7 @@ try {
 const [carrRock,setCarrRock]=useState([])
 
 const carrMe=async()=>{
-  const token=JSON.parse(sessionStorage.getItem('token'))
-  const config = {
-      headers: {
-        'Authorization': `${token}`
-      }
-    };
-  const rockCarrMe=await axiosUrl.get("/carr",config)
+  const rockCarrMe=await axiosUrl.get("/carr",configToken)
   const rockCarrIndividual=rockCarrMe.data.carrGet.find((data)=>data.idUsuario===rockData)
   setCarrRock(rockCarrIndividual.productos)
 }
@@ -326,27 +321,27 @@ const deleteRock=async(id)=>{
            <Modal.Body>
            <Form>
 
-           <Form.Group className="mb-3" controlId="formBasicEmail">
+           <Form.Group className="mb-3">
            <Form.Label>Nombre</Form.Label>
            <Form.Control type="text" placeholder="Ingresa el nombre" value={newUser.Nombre} name='Nombre' onChange={userChange} />
            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
           <Form.Label>Correo</Form.Label>
           <Form.Control type="email" placeholder="Ingresa el correo" value={newUser.Correo} name='Correo' onChange={userChange}/>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
           <Form.Label>Nacionalidad</Form.Label>
           <Form.Control type="text" placeholder="Ingresa la nacionalidad" value={newUser.Nacionalidad} name='Nacionalidad' onChange={userChange} />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
           <Form.Label>Role</Form.Label>
           <Form.Control type="text" placeholder="Ingresa el Role"  value={newUser.Role} name='Role' onChange={userChange} />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3">
           <Form.Label>Contraseña</Form.Label>
           <Form.Control type="password" placeholder="Ingresa la contraseña"  value={newUser.Contrasenia} name='Contrasenia' onChange={userChange} />
           </Form.Group>

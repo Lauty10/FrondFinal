@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import axiosUrl from '../helps/axiosBase';
+import axiosUrl, { configToken } from '../helps/axiosBase';
 import NavbarC from '../Componentes/NavbarC';
 import { Col, Container, Row } from 'react-bootstrap';
 import Figure from 'react-bootstrap/Figure';
@@ -47,12 +47,7 @@ const favoriteProduct=async()=>{
       const addUser= await axiosUrl.get(`/usuarios/${userId}`)
       console.log(addUser);
       if (addUser.status===200) {
-        const config = {
-          headers: {
-            'Authorization': `${token}`
-          }
-        };
-        const addProd= await axiosUrl.post(`/productos/fav/${params.id}`,{},config)
+        const addProd= await axiosUrl.post(`/productos/fav/${params.id}`,{},configToken)
         if (addProd.status===200) {
           Swal.fire({
             title: "Producto agregado a favoritos!",
@@ -113,12 +108,7 @@ const carrProduct=async()=>{
       const addUser= await axiosUrl.get(`/usuarios/${userId}`)
       console.log(addUser);
       if (addUser.status===200) {
-        const config = {
-          headers: {
-            'Authorization': `${token}`
-          }
-        };
-        const addProd= await axiosUrl.post(`/productos/cart/${params.id}`,{},config)
+        const addProd= await axiosUrl.post(`/productos/cart/${params.id}`,{},configToken)
         if (addProd.status===200) {
           Swal.fire({
             title: "Producto agregado al carrito!",

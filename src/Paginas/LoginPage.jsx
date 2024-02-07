@@ -31,7 +31,7 @@ const LoginPage = () => {
         const userLogin= await axiosUrl.post("/usuarios/login",{
           Correo:loginRock.correoRock,
           Contrasenia:loginRock.passRock
-         },configToken)
+         })
          if (userLogin.data.Role==="user") {
            sessionStorage.setItem("token",JSON.stringify(userLogin.data.token))
            sessionStorage.setItem("role",JSON.stringify(userLogin.data.Role))

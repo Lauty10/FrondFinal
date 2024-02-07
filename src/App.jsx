@@ -10,6 +10,7 @@ import SobreNosotros from './Paginas/SobreNosotros';
 import ProductPage from './Paginas/ProductPage';
 import FavPage from './Paginas/FavPage';
 import PrivateRoute from './Componentes/PrivateRoute';
+import Err404 from './Componentes/Err404';
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
         <PrivateRoute role={'user'}>
           <FavPage/>
         </PrivateRoute>}/>
+        <Route path='/Error' element={<Err404/>}/>
     </Routes>
   </Router>
   </>

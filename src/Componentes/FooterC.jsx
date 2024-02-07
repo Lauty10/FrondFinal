@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import QR from "../Images/QR-DATA.jpg";
 import "../Css/Footer.css";
+import { Link } from 'react-router-dom';
 
 const FooterC = () => {
   return (
@@ -14,8 +15,8 @@ const FooterC = () => {
           <img className='footer-style mt-4' src={Logo} alt="Logo-Rock" />
         </Col>
         <Col sm={12} md={3} lg={3} className='d-flex mt-5 mx-auto flex-column text-center text-md-start'>
-          <a href="#" className='me-4 tienda-style rock-tienda'>Tienda, Rock Full</a>
-          <a href="#" className='tienda-style'>Provincia de Buenos Aires, Argentina</a>
+        <Link to="/Error" className='me-4 tienda-style rock-tienda'>Tienda, Rock Full</Link>
+        <Link to="/Error" className='tienda-style'>Provincia de Buenos Aires, Argentina</Link>
         </Col>
         <Col sm={12} md={3} lg={3} className='d-flex mt-4 mx-auto align-items-center flex-column text-center text-md-start'>
           <a href="https://www.linkedin.com/in/lautaro-maldonado-168b1a263/"><FontAwesomeIcon icon={faLinkedin} beat size="3x" style={{color: "#6600ff"}} /></a>

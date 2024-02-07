@@ -90,7 +90,7 @@ const LoginPage = () => {
           const passRockNew= await axiosUrl.put(`/usuarios/pass`,{
             Correo:newpass.Correo,
             Contrasenia:newpass.Contrasenia,
-          },configToken)
+          })
           if (passRockNew.status===200) {
             Swal.fire({
               icon: "success",

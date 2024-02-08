@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import HomePage from './Paginas/HomePage';
 import RegisterPage from './Paginas/RegisterPage';
 import LoginPage from './Paginas/LoginPage';
@@ -11,6 +10,7 @@ import ProductPage from './Paginas/ProductPage';
 import FavPage from './Paginas/FavPage';
 import PrivateRoute from './Componentes/PrivateRoute';
 import Err404 from './Componentes/Err404';
+import { Route, Router, Routes } from 'react-router-dom';
 
 
 const App = () => {

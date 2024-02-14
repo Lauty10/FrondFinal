@@ -24,11 +24,6 @@ const NavbarC = () => {
   });
   const rockData=JSON.parse(sessionStorage.getItem('idUsuario'))
   const navigate=useNavigate();
-  const [barra, setBarra] = useState(false);
-
-  const toggleSearch = () => {
-    setBarra(!barra);
-  };
 
   const sinOff=()=>{
     sessionStorage.removeItem("token")
@@ -208,16 +203,10 @@ const deleteRock=async(id)=>{
     <>
       <Navbar expand="lg" className="color-nav">
         <Navbar.Brand href="#home" className='text-rock'><img className='img-logo' src={logoImage} alt="logo"/></Navbar.Brand>
-        <Navbar.Toggle className='color-button' aria-controls="basic-navbar-nav" onClick={toggleSearch} />
+        <Navbar.Toggle className='color-button' aria-controls="basic-navbar-nav"  />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <div className='style-control'>
-              {barra && (
-                <FormControl
-                  type="text"
-                  placeholder="Busca en nuestra tienda.."
-                />
-              )}
             </div>
             <NavLink  to="/" className='text-rock mt-2 me-2'>Inicio</NavLink>
             <NavLink to="/sobreNosotros" className='text-rock mt-2 me-2'>Sobre mi</NavLink>

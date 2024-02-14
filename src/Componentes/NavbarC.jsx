@@ -219,14 +219,14 @@ const deleteRock=async(id)=>{
                 />
               )}
             </div>
-            <NavLink  to="/" className='text-rock mt-2'>Inicio</NavLink>
-            <NavLink to="/sobreNosotros" className='text-rock mt-2'>Sobre mi</NavLink>
-            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock mt-2'>Contacto</NavLink>
+            <NavLink  to="/" className='text-rock mt-2 me-2'>Inicio</NavLink>
+            <NavLink to="/sobreNosotros" className='text-rock mt-2 me-2'>Sobre mi</NavLink>
+            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock mt-2 me-2'>Contacto</NavLink>
           {token && role==="user" ?(
               <>   
-              <NavLink to="/user" className='text-rock mt-2'>Tienda</NavLink>     
-              <NavLink to="/fav" className='text-rock mt-2'>Favoritos</NavLink>
-              <NavLink onClick={handleShow} className='text-rock mt-2'>Carrito</NavLink>
+              <NavLink to="/user" className='text-rock mt-2 me-2'>Tienda</NavLink>     
+              <NavLink to="/fav" className='text-rock mt-2 me-2'>Favoritos</NavLink>
+              <NavLink onClick={handleShow} className='text-rock mt-2 me-2'>Carrito</NavLink>
             <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
             <Offcanvas.Title id='style-carr-title' className='title-carr-pp justify-content-center aling-items-center'>Carrito Full Rock</Offcanvas.Title>
@@ -363,8 +363,8 @@ const deleteRock=async(id)=>{
             </Nav>
           ) : (
             <Nav className="ms-auto me-2">
-              <NavLink to="/register" className='text-rock'>Registrarse</NavLink>
-              <NavLink to="/login" className='text-rock'>Iniciar Sesion</NavLink>
+              <NavLink to="/register" className='text-rock mt-2 me-2'>Registrarse</NavLink>
+              <NavLink to="/login" className='text-rock mt-2 me-2'>Iniciar Sesion</NavLink>
             </Nav>
           )}
         </Navbar.Collapse>

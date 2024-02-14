@@ -58,7 +58,6 @@ const NavbarC = () => {
   }
 
   const newChangeImagen=(ev)=>{
-    console.log(ev)
     setImagen(ev.target.files[0]);
 
   }
@@ -77,9 +76,7 @@ const NavbarC = () => {
       data.append("Precio",Precio)
       data.append("Descripcion",Descripcion)
       data.append("Imagen",imagen)
-      const token=JSON.parse(sessionStorage.getItem("token"))||"";
-      const config=configToken(token)
-      const createProductRock=await axiosUrl.post("/productos",data,config);
+      const createProductRock=await axiosUrl.post("/productos",data);
       console.log(createProductRock)
       if (createProductRock.status===200) {
         alert("Producto creado")

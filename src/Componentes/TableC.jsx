@@ -33,6 +33,8 @@ const TableC = ({ data }) => {
       setState({...state,[ev.target.name]:ev.target.value})
     }
 
+
+
     const editProductRock = async (ev) => {
       ev.preventDefault();
       try {

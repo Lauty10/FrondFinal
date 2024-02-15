@@ -1,4 +1,5 @@
 import NavbarC from '../components/NavbarC';
+import "../Css/SobreNosotros.css";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -14,7 +15,7 @@ import TRELLO from "../images/TRELLO.png"
 import GITHUB from "../images/github.jpg"
 import GIT from "../images/GIT.png"
 import FooterC from '../components/FooterC';
-import "../Css/SobreNosotros.css";
+
 
 const SobreNosotros = () => {
   return (

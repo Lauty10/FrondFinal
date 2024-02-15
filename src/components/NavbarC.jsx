@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import FormControl from 'react-bootstrap/FormControl';
 import logoImage from '../Images/logo.png';
 import '../Css/NavbarC.css';
 import Button from 'react-bootstrap/Button';
@@ -12,7 +11,6 @@ import Table from 'react-bootstrap/Table';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-import { config } from '@fortawesome/fontawesome-svg-core';
 import axiosUrl, { configToken } from '../helps/axiosBase';
 
 

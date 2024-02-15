@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import NavbarC from '../components/NavbarC';
 import Swal from 'sweetalert2'
-import Redondos from "../images/REDONDOS.jpg"
+import Redondos from "../images/REDONDOS.jpg";
 import FooterC from '../components/FooterC';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';

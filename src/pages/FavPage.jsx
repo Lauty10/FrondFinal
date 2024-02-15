@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axiosUrl, { configToken } from '../helps/axiosBase'
-import NavbarC from '../Componentes/NavbarC'
+import NavbarC from '../components/NavbarC'
 import { Col, Container, Row } from 'react-bootstrap';
-import FooterC from '../Componentes/FooterC';
-import "../Css/Fav.css"
-import CardC from '../Componentes/CardC';
+import FooterC from '../components/FooterC';
+import CardC from '../components/CardC';
+import "../css/Fav.css"
 
 const FavPage = () => {
     const rockData=JSON.parse(sessionStorage.getItem('idUsuario'))

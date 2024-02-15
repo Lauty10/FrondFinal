@@ -1,16 +1,17 @@
 import React from 'react'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import HomePage from './Paginas/HomePage';
-import RegisterPage from './Paginas/RegisterPage';
-import LoginPage from './Paginas/LoginPage';
-import UserPage from './Paginas/UserPage';
-import AdminPage from './Paginas/AdminPage';
-import AdminPageUser from './Paginas/AdminPageUser';
-import SobreNosotros from './Paginas/SobreNosotros';
-import ProductPage from './Paginas/ProductPage';
-import FavPage from './Paginas/FavPage';
-import PrivateRoute from './Componentes/PrivateRoute';
-import Err404 from './Componentes/Err404';
+import HomePage from './pages/HomePage';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import UserPage from './pages/UserPage';
+import FavPage from './pages/FavPage';
+import ProductPage from './pages/ProductPage';
+import SobreNosotros from './pages/SobreNosotros';
+import AdminPage from './pages/AdminPage';
+import AdminPageUser from './pages/AdminPageUser';
+import PrivateRoute from './components/PrivateRoute';
+import Err404 from './components/Err404';
+
 
 
 const App = () => {
@@ -47,3 +48,4 @@ const App = () => {
 }
 
 export default App
+

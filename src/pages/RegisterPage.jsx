@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
-import NavbarC from '../Componentes/NavbarC';
-import Soda from "../Images/SODA.JPG"
-import "../Css/RegisterPage.css"
+import NavbarC from '../components/NavbarC';
+import Soda from "../images/soda.jpg"
 import { Col, Container, Row } from 'react-bootstrap';
-import FooterC from '../Componentes/FooterC';
+import FooterC from '../components/FooterC';
 import { useNavigate } from 'react-router-dom';
+import "../css/RegisterPage.css"
 
 const RegisterPage = () => {
    const navigate=useNavigate()

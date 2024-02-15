@@ -1,14 +1,14 @@
 
 import React, { useEffect, useState } from 'react'
 import axiosUrl, { configToken } from '../helps/axiosBase'
-import TableC from '../Componentes/TableC'
-import NavbarC from '../Componentes/NavbarC'
-import FooterC from '../Componentes/FooterC'
+import TableC from '../components/TableC'
+import NavbarC from '../components/NavbarC'
+import FooterC from '../components/FooterC'
 import { Col, Container, Row } from 'react-bootstrap'
 
 
 const AdminPage = () => {
-
+ 
   const [rockProduct,setRockProduct]=useState([])
 
   const rockAllP=async()=>{

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import CarruselC from '../Componentes/CarruselC'
+import CarruselC from '../components/CarruselC'
 import axiosUrl from '../helps/axiosBase'
-import SliderC from '../Componentes/SliderC'
-import "../Css/NavbarC.css"
-import NavbarC from '../Componentes/NavbarC'
+import SliderC from '../components/SliderC'
+import NavbarC from '../components/NavbarC'
 import Accordion from 'react-bootstrap/Accordion';
-import "../Css/HomePage.css"
-import FooterC from '../Componentes/FooterC'
-import Publicity from '../Componentes/Publicity'
-
-
+import FooterC from '../components/FooterC'
+import Publicity from '../components/Publicity'
+import "../css/NavbarC.css"
+import "../css/HomePage.css"
 
 const HomePage = () => {
   
@@ -25,13 +23,9 @@ const HomePage = () => {
  }
   }
 
-
   useEffect(()=>{
    allGetProductos()
   },[])
-
-  
-
 
   return (
   <>

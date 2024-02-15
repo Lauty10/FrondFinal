@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axiosUrl, { configToken } from '../helps/axiosBase';
-import NavbarC from '../Componentes/NavbarC';
+import NavbarC from '../components/NavbarC';
 import { Col, Container, Row } from 'react-bootstrap';
 import Figure from 'react-bootstrap/Figure';
 import Accordion from 'react-bootstrap/Accordion';
-import "../Css/ProductPage.css"
-import FooterC from '../Componentes/FooterC';
+import FooterC from '../components/FooterC';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Swal from 'sweetalert2'
-import Aero from "../Images/aero.jpg"
-import Queen from "../Images/QueenBand.jpg"
+import Aero from "../images/aero.jpg"
+import Queen from "../images/QueenBand.jpg"
+import "../css/ProductPage.css"
 
 const ProductPage = () => {
   const navigate=useNavigate();

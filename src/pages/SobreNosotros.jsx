@@ -1,21 +1,21 @@
 import React from 'react';
-import NavbarC from '../Componentes/NavbarC';
+import NavbarC from '../components/NavbarC';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
-import Yo from "../Images/yo.png";
-import HTML from "../Images/HTML.png"
-import CSS from "../Images/CSS.png"
-import JS from "../Images/JS.png"
-import NODE from "../Images/NODE.png"
-import MONGODB from "../Images/MONGODB.jpg"
-import REACT from "../Images/REACT.jpg"
-import TRELLO from "../Images/TRELLO.png"
-import GITHUB from "../Images/github.jpg"
-import GIT from "../Images/GIT.png"
-import "../Css/SobreNosotros.css";
-import FooterC from '../Componentes/FooterC';
+import Yo from "../images/yo.png";
+import HTML from "../images/HTML.png"
+import CSS from "../images/CSS.png"
+import JS from "../images/JS.png"
+import NODE from "../images/NODE.png"
+import MONGODB from "../images/MONGODB.jpg"
+import REACT from "../images/REACT.jpg"
+import TRELLO from "../images/TRELLO.png"
+import GITHUB from "../images/github.jpg"
+import GIT from "../images/GIT.png"
+import FooterC from '../components/FooterC';
+import "../css/SobreNosotros.css";
 
 const SobreNosotros = () => {
   return (

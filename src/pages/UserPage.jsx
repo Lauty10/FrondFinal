@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import NavbarC from '../Componentes/NavbarC';
-import FooterC from '../Componentes/FooterC';
+import NavbarC from '../components/NavbarC';
+import FooterC from '../components/FooterC';
 import "../Css/UserPage.css";
 import { Col, Container, Row } from 'react-bootstrap';
 import axiosUrl from '../helps/axiosBase';
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-import CardC from '../Componentes/CardC';
+import CardC from '../components/CardC';
 import Pagination from 'react-bootstrap/Pagination';
 
 const UserPage = () => {

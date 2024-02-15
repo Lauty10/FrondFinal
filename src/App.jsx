@@ -10,7 +10,8 @@ import SobreNosotros from './pages/SobreNosotros';
 import AdminPage from './pages/AdminPage';
 import AdminPageUser from './pages/AdminPageUser';
 import PrivateRoute from './components/PrivateRoute';
-import Err404 from './components/Err404';
+import Err404 from './components/Error404';
+
 
 
 

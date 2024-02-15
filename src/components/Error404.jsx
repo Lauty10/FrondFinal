@@ -1,5 +1,5 @@
 import React from 'react'
-import "../css/err.css"
+import "../css/Err404.css"
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 

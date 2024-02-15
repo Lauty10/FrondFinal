@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import Logo from "../images/logo.png";
+import Logo from "../Imangess/logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import QR from "../images/QR-DATA.jpg";
+import QR from "../Imangess/QR-DATA.jpg";
 import { Link } from 'react-router-dom';
 import "../Css/Footer.css";
 

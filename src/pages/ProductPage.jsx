@@ -9,8 +9,8 @@ import FooterC from '../components/FooterC';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Swal from 'sweetalert2'
-import Aero from "../images/aero.jpg"
-import Queen from "../images/QueenBand.jpg"
+import Aero from "../Imangess/aero.jpg"
+import Queen from "../Imangess/QueenBand.jpg"
 import "../Css/ProductPage.css"
 
 const ProductPage = () => {

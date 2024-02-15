@@ -3,9 +3,9 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
-import Coca from '../images/coke-coca-cola.gif'
-import Rock from '../images/rock.gif'
-import Pizza from '../images/spinning-pizza.gif'
+import Coca from '../Imangess/coke-coca-cola.gif'
+import Rock from '../Imangess/rock.gif'
+import Pizza from '../Imangess/spinning-pizza.gif'
 import "../Css/Publicity.css"
 
 const Publicity = () => {

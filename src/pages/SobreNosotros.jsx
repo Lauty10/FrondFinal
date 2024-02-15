@@ -4,16 +4,16 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
-import Yo from "../images/yo.png";
-import HTML from "../images/HTML.png"
-import CSS from "../images/CSS.png"
-import JS from "../images/JS.png"
-import NODE from "../images/NODE.png"
-import MONGODB from "../images/MONGODB.jpg"
-import REACT from "../images/REACT.jpg"
-import TRELLO from "../images/TRELLO.png"
-import GITHUB from "../images/github.jpg"
-import GIT from "../images/GIT.png"
+import Yo from "../Imangess/yo.png";
+import HTML from "../Imangess/HTML.png"
+import CSS from "../Imangess/CSS.png"
+import JS from "../Imangess/JS.png"
+import NODE from "../Imangess/NODE.png"
+import MONGODB from "../Imangess/MONGODB.jpg"
+import REACT from "../Imangess/REACT.jpg"
+import TRELLO from "../Imangess/TRELLO.png"
+import GITHUB from "../Imangess/github.jpg"
+import GIT from "../Imangess/GIT.png"
 import FooterC from '../components/FooterC';
 
 

@@ -6,7 +6,6 @@ import NavbarC from '../components/NavbarC'
 import Accordion from 'react-bootstrap/Accordion';
 import FooterC from '../components/FooterC'
 import Publicity from '../components/Publicity'
-import "../css/NavbarC.css"
 import "../css/HomePage.css"
 
 const HomePage = () => {

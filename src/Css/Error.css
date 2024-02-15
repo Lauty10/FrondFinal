@@ -1,5 +1,5 @@
 .fondo-img {
-    background-image: url(../images/Error404.jpg);
+    background-image: url(../Images/Error404.jpg);
 
     background-position: center; 
     
@@ -19,7 +19,7 @@
 @media(max-width:995px){
     .fondo-img {
 
-        background-image: url(../images/Error404.jpg);
+        background-image: url(../Images/Error404.jpg);
         
    
         background-size: cover; 
@@ -45,11 +45,10 @@
 }
 
 .button-retroced{
-    position: fixed; /* Mantiene el botón fijo en la pantalla */
-    bottom: 10px; /* Espaciado desde el fondo de la pantalla */
-    left: 50%; /* Centra el botón horizontalmente */
-    transform: translateX(-50%); /* Ajusta el centrado debido al posicionamiento left */
-    /* Añade cualquier otro estilo que necesites */
+    position: fixed; 
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
 }
 
 

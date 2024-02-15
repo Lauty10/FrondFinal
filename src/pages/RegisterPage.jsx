@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Swal from 'sweetalert2'
 import NavbarC from '../components/NavbarC';
-import Soda from "../images/soda.jpg"
+import Soda from "../images/SODA.jpg"
 import { Col, Container, Row } from 'react-bootstrap';
 import FooterC from '../components/FooterC';
 import { useNavigate } from 'react-router-dom';

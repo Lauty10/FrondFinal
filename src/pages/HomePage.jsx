@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import CarruselC from '../components/CarruselC'
 import axiosUrl from '../helps/axiosBase'
 import SliderC from '../components/SliderC'
@@ -6,7 +6,7 @@ import NavbarC from '../components/NavbarC'
 import Accordion from 'react-bootstrap/Accordion';
 import FooterC from '../components/FooterC'
 import Publicity from '../components/Publicity'
-import "../css/HomePage.css"
+import "../css/Homepage.css"
 
 const HomePage = () => {
   

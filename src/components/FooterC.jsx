@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import QR from "../images/QR-DATA.jpg";
 import { Link } from 'react-router-dom';
-import "../css/Footer.css";
+import "../Css/Footer.css";
 
 const FooterC = () => {
   return (

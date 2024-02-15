@@ -8,7 +8,7 @@ import FooterC from '../components/FooterC';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import axiosUrl from '../helps/axiosBase';
-import "../css/LoginPage.css"
+import "../Css/LoginPage.css"
 
 const LoginPage = () => {
   const navigate = useNavigate()

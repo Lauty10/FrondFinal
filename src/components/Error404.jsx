@@ -1,7 +1,7 @@
 
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
-import "../css/Error.css"
+import "../Css/Error.css"
 
 const Err404 = () => {
     const navigate = useNavigate();

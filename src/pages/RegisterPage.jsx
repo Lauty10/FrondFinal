@@ -7,7 +7,7 @@ import Soda from "../images/soda.jpg"
 import { Col, Container, Row } from 'react-bootstrap';
 import FooterC from '../components/FooterC';
 import { useNavigate } from 'react-router-dom';
-import "../css/RegisterPage.css"
+import "../Css/RegisterPage.css"
 
 const RegisterPage = () => {
    const navigate=useNavigate()

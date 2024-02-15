@@ -11,7 +11,7 @@ import Alert from 'react-bootstrap/Alert';
 import Swal from 'sweetalert2'
 import Aero from "../images/aero.jpg"
 import Queen from "../images/QueenBand.jpg"
-import "../css/ProductPage.css"
+import "../Css/ProductPage.css"
 
 const ProductPage = () => {
   const navigate=useNavigate();

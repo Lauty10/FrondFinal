@@ -15,7 +15,7 @@ import TRELLO from "../images/TRELLO.png"
 import GITHUB from "../images/github.jpg"
 import GIT from "../images/GIT.png"
 import FooterC from '../components/FooterC';
-import "../css/SobreNosotros.css";
+import "../Css/SobreNosotros.css";
 
 const SobreNosotros = () => {
   return (

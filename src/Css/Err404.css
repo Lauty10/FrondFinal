@@ -1,5 +1,5 @@
 .fondo-img {
-    background-image: url(../Images/Error404.jpg);
+    background-image: url(../images/Error404.jpg);
 
     background-position: center; 
     
@@ -19,7 +19,7 @@
 @media(max-width:995px){
     .fondo-img {
 
-        background-image: url(../Images/Error404.jpg);
+        background-image: url(../images/Error404.jpg);
         
    
         background-size: cover; 

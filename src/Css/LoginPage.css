@@ -1,3 +1,9 @@
+html, body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
 .login-fondo {
     background-repeat: no-repeat;
     background-size: 100% 100%; 
@@ -5,7 +11,7 @@
     margin: 0; 
     padding: 0; 
     height: 100vh;
-    background-image: url(../Images//fondo1.jpg);
+    background-image: url(../images//fondo1.jpg);
     display: flex;
     flex-direction: column; 
 }
@@ -20,13 +26,6 @@
     color: red;
     background-color: transparent;
 }
-
-
-html, body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-  }
 
 .text-style-login{
     font-family: 'Rock Salt', cursive;

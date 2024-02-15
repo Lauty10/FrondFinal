@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
+import Yo from "../images/yo.png";
 import HTML from "../images/HTML.png"
 import CSS from "../images/CSS.png"
 import JS from "../images/JS.png"
@@ -14,7 +15,6 @@ import GITHUB from "../images/github.jpg"
 import GIT from "../images/GIT.png"
 import FooterC from '../components/FooterC';
 import "../Css/SobreNosotros.css";
-import Yo from "../images/yo.png";
 
 const SobreNosotros = () => {
   return (

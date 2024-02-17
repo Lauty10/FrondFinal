@@ -26,7 +26,7 @@ const FooterC = () => {
       </Row>
       <Row className='mt-3'>
         <Col sm={12} md={12} lg={12} className='text-center'>
-          <p className='tienda-style copy-style mb-2'>© 2024 Full Rock. Todos los derechos reservados. Descubre el auténtico espíritu del rock en nuestra tienda. Encuentra la moda que define tu estilo, la música que alimenta tu alma y los accesorios que completan tu look. ¡Vive el rock al máximo con Full Rock!</p>
+          <p className='tienda-style copy-style mb-2'>©2024 Store  Full Rock. Todos los derechos reservados.</p>
         </Col>
       </Row>
     </Container>

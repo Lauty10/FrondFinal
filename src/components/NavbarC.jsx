@@ -221,7 +221,6 @@ const deleteRock=async(id)=>{
           <tr>
           <th className='th-text'>Nombre</th>
           <th className='th-text'>Precio</th>
-          <th className='th-text'>Marca</th>
           <th className='th-text'>Eliminar</th>
           </tr>
           </thead>
@@ -230,7 +229,6 @@ const deleteRock=async(id)=>{
          <tr key={producto._id}>
          <td className='title-carr my-3'>{producto.Nombre}</td>
          <td className='title-carr my-3'>{producto.Precio}</td>
-         <td className='title-carr my-3'>{producto.Marca}</td>
          <td><Button onClick={()=>deleteRock(producto._id)} variant='danger'>Borrar</Button></td>
         </tr>
           ))}

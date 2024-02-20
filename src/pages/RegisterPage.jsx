@@ -8,6 +8,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import FooterC from '../components/FooterC';
 import { useNavigate } from 'react-router-dom';
 import "../Css/RegisterPage.css"
+import axiosUrl from '../helps/axiosBase';
 
 const RegisterPage = () => {
    const navigate=useNavigate()
@@ -34,19 +35,15 @@ if (!NombreRock || !NacionalidadRock || !CorreoRock || !ContraseniaRock || !Rcon
         text: "Por favorr completa todos los campos!",
       });
 }else if (ContraseniaRock===RcontraseniaRock){
-    const RockRegister= await fetch("http://localhost:3001/usuarios",{
-        method:"Post",
-        headers:{
-            'content-type':'application/json'
-        },
-        body:JSON.stringify({
+    const RockRegister= await axiosUrl.post("/usuarios",
+           {
             Nombre:NombreRock,
             Nacionalidad:NacionalidadRock,
             Correo:CorreoRock,
             Contrasenia:ContraseniaRock
-        })
-    })
-    const rockUserNew= await RockRegister.json()
+        }
+    )
+    const rockUserNew= RockRegister
    if (rockUserNew) {
     Swal.fire({
         title: "Gracias por registrarse!",
@@ -141,27 +138,27 @@ RcontraRock.addEventListener('input',RContraRockColor)
          <div className='d-flex justify-content-center mt-5'>
        <Form className='form-style'>
       <h2 className='h2-rock-register'>Registrarse</h2>
-      <Form.Group className="mb-3" controlId="NombreInfo">
+      <Form.Group className="mb-3" controlIdName="NombreInfo">
          <Form.Label className='register-style'>Nombre</Form.Label>
          <Form.Control id='NameRock' type="text" value={formRegister.Nombre} onChange={registerChange} placeholder="Ingrese su Nombre" name='NombreRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="nacionalidadInfo">
+      <Form.Group className="mb-3" controlIdInfo="nacionalidadInfo">
          <Form.Label className='register-style'>Nacionalidad</Form.Label>
          <Form.Control id='NacionalityRock' type="text" value={formRegister.Nacionalidad} onChange={registerChange} placeholder="Ingrese su nacionalidad" name='NacionalidadRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="correoInfo">
+      <Form.Group className="mb-3" controlIdCorreo="correoInfo">
          <Form.Label className='register-style'>Correo Electronico</Form.Label>
          <Form.Control id='EmailRock' type="email" value={formRegister.Correo} onChange={registerChange} placeholder="Ingrese su correo" name='CorreoRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="passInfo">
+      <Form.Group className="mb-3" controlIdPass="passInfo">
          <Form.Label className='register-style'>Contraseña</Form.Label>
          <Form.Control id='ContraRock' type="password" value={formRegister.Contrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='ContraseniaRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="rPassInfo">
+      <Form.Group className="mb-3" controlIdTwo="rPassInfo">
          <Form.Label className='register-style'>Repetir Contraseña</Form.Label>
          <Form.Control id='RcontraRock' type="password" value={formRegister.Rcontrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='RcontraseniaRock' />
       </Form.Group>

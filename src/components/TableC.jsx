@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import "../Css/TableC.css"
 import Button from 'react-bootstrap/Button';
@@ -6,9 +6,12 @@ import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import axiosUrl, { configToken } from '../helps/axiosBase';
+import Swal from 'sweetalert2'
 
 
-const TableC = ({ data }) => {
+const TableC = ({ data,loadUser}) => {
+
+  const{setLoad,load}=loadUser
 
   const [show, setShow] = useState(false);
 
@@ -50,9 +53,29 @@ const TableC = ({ data }) => {
     
         if (sendPost.status === 200) {
           alert("Producto actualizado");
+          setLoad(!load)
         }
       } catch (error) {
-        console.log(error);
+        let errorMessage = "Ocurrió un error desconocido.";
+  
+
+        if (error.response && error.response.data && error.response.data.mensaje) {
+    
+          errorMessage = error.response.data.mensaje;
+          
+        } else if (error.request) {
+    
+          errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+        } else {
+    
+          errorMessage = error.message || "Error al realizar la solicitud.";
+        }
+    
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: errorMessage
+        });
       }
     };
 
@@ -65,11 +88,30 @@ const TableC = ({ data }) => {
         const rockDelete= await axiosUrl.delete(`/productos/${id}`,config)
         if (rockDelete.status===200) {
           alert("Producto eliminado correctamente")
-          location.reload()
+          setLoad(!load)
         }
       }
      } catch (error) {
-      console.log(error)
+      let errorMessage = "Ocurrió un error desconocido.";
+  
+
+      if (error.response && error.response.data && error.response.data.mensaje) {
+  
+        errorMessage = error.response.data.mensaje;
+        
+      } else if (error.request) {
+  
+        errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+      } else {
+  
+        errorMessage = error.message || "Error al realizar la solicitud.";
+      }
+  
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: errorMessage
+      });
      }
 
     }

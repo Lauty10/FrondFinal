@@ -12,11 +12,17 @@ import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 import axiosUrl, { configToken } from '../helps/axiosBase';
+import Swal from 'sweetalert2'
 
 
 
-const NavbarC = () => {
+
+const NavbarC = ({loadRock,productLoad,productSetLoad,userRockLoad,userSetRock}) => {
+
+  const[loadNav,SetLoadNav]=useState(false)
+
   const [preference,setPreference]=useState(null)
+
   initMercadoPago('YOUR_PUBLIC_KEY',{
     locale:"es-AR"
   });
@@ -77,14 +83,36 @@ const NavbarC = () => {
       const createProductRock=await axiosUrl.post("/productos",data);
       console.log(createProductRock)
       if (createProductRock.status===200) {
-        alert("Producto creado")
-  
+        alert("Producto creado correctamente")
+        productSetLoad(!productLoad)
+        
       }
     }
    } catch (error) {
-    console.log(error)
+    let errorMessage = "Ocurrió un error desconocido.";
+  
+
+    if (error.response && error.response.data && error.response.data.mensaje) {
+
+      errorMessage = error.response.data.mensaje;
+      
+    } else if (error.request) {
+
+      errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+    } else {
+
+      errorMessage = error.message || "Error al realizar la solicitud.";
+    }
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: errorMessage
+    });
    }
   }
+
+  
 
   const [newUser,setNewUser]=useState({
     Nombre:"",
@@ -116,11 +144,31 @@ try {
       Contrasenia:newUser.Contrasenia
     },config)
     if (createUserRock.status===200) {
-      alert("Usuario creado")
+      alert("Usuario creado correctamente")
+      userSetRock(!userRockLoad)
     }
   }
 } catch (error) {
-  console.log(error)
+  let errorMessage = "Ocurrió un error desconocido.";
+  
+
+  if (error.response && error.response.data && error.response.data.mensaje) {
+
+    errorMessage = error.response.data.mensaje;
+    
+  } else if (error.request) {
+
+    errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+  } else {
+
+    errorMessage = error.message || "Error al realizar la solicitud.";
+  }
+
+  Swal.fire({
+    icon: 'error',
+    title: 'Error',
+    text: errorMessage
+  });
 }
 }
 
@@ -135,8 +183,15 @@ const carrMe=async()=>{
 }
 
 useEffect(()=>{
+carrMe()
+},[loadRock])
+
+
+useEffect(()=>{
   carrMe()
-},[])
+},[loadNav])
+
+
 
 
 const createPrefance=async()=>{
@@ -148,7 +203,26 @@ const createPrefance=async()=>{
     })
     return responseMp
   } catch (error) {
-    console.log(error)
+    let errorMessage = "Ocurrió un error desconocido.";
+  
+
+    if (error.response && error.response.data && error.response.data.mensaje) {
+
+      errorMessage = error.response.data.mensaje;
+      
+    } else if (error.request) {
+
+      errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+    } else {
+
+      errorMessage = error.message || "Error al realizar la solicitud.";
+    }
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: errorMessage
+    });
   }
 }
 
@@ -177,12 +251,33 @@ const deleteRock=async(id)=>{
       const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
       if (rockDelte.status===200) {
         alert("Producto eliminado")
+        SetLoadNav(!loadNav)
       }
     }
   } catch (error) {
-    console.log(error)
+    let errorMessage = "Ocurrió un error desconocido.";
+  
+
+    if (error.response && error.response.data && error.response.data.mensaje) {
+
+      errorMessage = error.response.data.mensaje;
+      
+    } else if (error.request) {
+
+      errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+    } else {
+
+      errorMessage = error.message || "Error al realizar la solicitud.";
+    }
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: errorMessage
+    });
   }
 }
+
 
   const handleWhatsAppClick = () => {
     const phoneNumber = '91123877300'; 

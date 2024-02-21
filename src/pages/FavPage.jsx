@@ -7,6 +7,9 @@ import CardC from '../components/CardC';
 import "../Css/Fav.css"
 
 const FavPage = () => {
+
+    const [loadFav,setLoadFav]=useState(false)
+
     const rockData=JSON.parse(sessionStorage.getItem('idUsuario'))
 
     const[productFav,setProductFav]=useState([])
@@ -21,7 +24,7 @@ const FavPage = () => {
 
 useEffect(()=>{
     getFavRock()
-},[])
+},[loadFav])
 
 
   return (
@@ -32,7 +35,7 @@ useEffect(()=>{
         <Row>
         {productFav.map((data)=>(
             <Col className='my-5 d-flex justify-content-center aling-items-center' sm={"12"} md={"4"} lg={"4"} key={data._id}>
-           <CardC clas imageUrl={data.Imagen} idPage='favPage' idDelete={data._id}/>
+           <CardC userFavLoad={loadFav} stateUserFav={setLoadFav} imageUrl={data.Imagen} idPage='favPage' idDelete={data._id}/>
             </Col>
            ))}
         </Row>

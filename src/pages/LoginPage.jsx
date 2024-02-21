@@ -96,7 +96,26 @@ const LoginPage = () => {
         }
       }
     } catch (error) {
-      console.log(error)
+      let errorMessage = "Ocurrió un error desconocido.";
+  
+
+      if (error.response && error.response.data && error.response.data.mensaje) {
+  
+        errorMessage = error.response.data.mensaje;
+        
+      } else if (error.request) {
+  
+        errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+      } else {
+  
+        errorMessage = error.message || "Error al realizar la solicitud.";
+      }
+  
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: errorMessage
+      });
     }
   }
 

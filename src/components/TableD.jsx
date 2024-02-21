@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import axiosUrl, { configToken } from '../helps/axiosBase';
+import Swal from 'sweetalert2'
 
 
 
@@ -52,7 +53,26 @@ const TableD = ({data,loadUser}) => {
                 setLoad(!load)
             }
         } catch (error) {
-            console.log(error)
+          let errorMessage = "Ocurrió un error desconocido.";
+  
+
+          if (error.response && error.response.data && error.response.data.mensaje) {
+      
+            errorMessage = error.response.data.mensaje;
+            
+          } else if (error.request) {
+      
+            errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+          } else {
+      
+            errorMessage = error.message || "Error al realizar la solicitud.";
+          }
+      
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: errorMessage
+          });
         }
     }
 
@@ -65,10 +85,30 @@ const TableD = ({data,loadUser}) => {
                 const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,config)
                 if (RockDelete.status===200) {
                     alert("Usuario eliminado correctamente")
+                    setLoad(!load)
                 }
             }
         } catch (error) {
-            console.log(error)
+          let errorMessage = "Ocurrió un error desconocido.";
+  
+
+          if (error.response && error.response.data && error.response.data.mensaje) {
+      
+            errorMessage = error.response.data.mensaje;
+            
+          } else if (error.request) {
+      
+            errorMessage = "La solicitud fue realizada pero no se recibió respuesta del servidor.";
+          } else {
+      
+            errorMessage = error.message || "Error al realizar la solicitud.";
+          }
+      
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: errorMessage
+          });
         }
     }
 

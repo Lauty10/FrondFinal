@@ -25,7 +25,7 @@ const AdminPageUser = () => {
   return (
     <div className='style-table'>
     <>
-    <NavbarC/>
+    <NavbarC userRockLoad={load} userSetRock={setLoad}/>
     <Container>
       <Row>
         <Col lg={"12"} sm={"12"} md={"12"}>

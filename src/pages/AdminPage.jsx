@@ -8,7 +8,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 
 
 const AdminPage = () => {
- 
+   const[load,setLoad]=useState(false)
   const [rockProduct,setRockProduct]=useState([])
 
   const rockAllP=async()=>{
@@ -18,18 +18,18 @@ const AdminPage = () => {
 
   useEffect(()=>{
     rockAllP()
-  },[])
+  },[load])
 
 
 
   return (
     <>
     <div className='img-body'>
-    <NavbarC/>
+    <NavbarC productLoad={load} productSetLoad={setLoad}/>
     <Container>
       <Row>
         <Col lg={"12"} sm={"12"} md={"12"}>
-        <TableC  data={rockProduct}/>
+        <TableC loadUser={{setLoad,load}}  data={rockProduct}/>
         </Col>
       </Row>
     </Container>

@@ -14,6 +14,7 @@ import Queen from "../Images/QueenBand.jpg"
 import "../Css/ProductPage.css"
 
 const ProductPage = () => {
+  const [productLoad,setProductLoad]=useState(false)
   const navigate=useNavigate();
     const token=sessionStorage.getItem("token")
     const params=useParams();
@@ -121,9 +122,7 @@ const carrProduct=async()=>{
             imageHeight: 200,
             imageAlt: "Custom image"
           });
-          setInterval(()=>{
-  
-          },2000)
+          setProductLoad(!productLoad)
         }
       }
     }
@@ -156,7 +155,7 @@ const carrProduct=async()=>{
   return (
     <>
     <div className='fond-rock'>
-    <NavbarC/>
+    <NavbarC loadRock={productLoad}/>
     <Container>
     {[
        'danger'

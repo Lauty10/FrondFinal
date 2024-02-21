@@ -13,7 +13,7 @@ const CardC = ({ title, imageUrl, idProduct, idPage, idDelete}) => {
     const deleteProduct=await axiosUrl.delete(`/fav/${id}`,config)
     if (deleteProduct.status===200) {
       alert("Producto eliminado de favoritos")
-      window.location.reload()
+
     }
   }
 

@@ -50,7 +50,6 @@ const TableC = ({ data }) => {
     
         if (sendPost.status === 200) {
           alert("Producto actualizado");
-          window.location.reload();
         }
       } catch (error) {
         console.log(error);

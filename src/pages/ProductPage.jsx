@@ -60,7 +60,6 @@ const favoriteProduct=async()=>{
             imageAlt: "Custom image"
           });
           setInterval(()=>{
-            window.location.reload()
           },2000)
         }
       }
@@ -123,7 +122,7 @@ const carrProduct=async()=>{
             imageAlt: "Custom image"
           });
           setInterval(()=>{
-            window.location.reload()
+  
           },2000)
         }
       }

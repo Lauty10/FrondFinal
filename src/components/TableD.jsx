@@ -47,7 +47,7 @@ const TableD = ({data}) => {
             },config)
             if (RockFull.status===200) {
                 alert("Producto Actualizado")
-                window.location.reload()
+    
             }
         } catch (error) {
             console.log(error)

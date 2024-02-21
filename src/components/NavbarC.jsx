@@ -78,7 +78,7 @@ const NavbarC = () => {
       console.log(createProductRock)
       if (createProductRock.status===200) {
         alert("Producto creado")
-        window.location.reload()
+  
       }
     }
    } catch (error) {
@@ -117,7 +117,6 @@ try {
     },config)
     if (createUserRock.status===200) {
       alert("Usuario creado")
-      window.location.reload()
     }
   }
 } catch (error) {
@@ -178,7 +177,6 @@ const deleteRock=async(id)=>{
       const rockDelte= await axiosUrl.delete(`/carr/${id}`,config)
       if (rockDelte.status===200) {
         alert("Producto eliminado")
-        window.location.reload()
       }
     }
   } catch (error) {

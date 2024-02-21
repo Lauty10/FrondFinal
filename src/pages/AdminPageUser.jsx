@@ -8,6 +8,9 @@ import NavbarC from '../components/NavbarC'
 
 const AdminPageUser = () => {
   const [userData,setUserData]=useState([])
+
+  const[load,setLoad]=useState(false)
+
   const rockUser=async()=>{
     const token=JSON.parse(sessionStorage.getItem("token"))||"";
     const config=configToken(token)
@@ -17,7 +20,7 @@ const AdminPageUser = () => {
 
   useEffect(()=>{
     rockUser()
-  },[])
+  },[load])
 
   return (
     <div className='style-table'>
@@ -26,7 +29,7 @@ const AdminPageUser = () => {
     <Container>
       <Row>
         <Col lg={"12"} sm={"12"} md={"12"}>
-       <TableD data={userData}/>
+       <TableD loadUser={{setLoad,load}} data={userData}/>
         </Col>
       </Row>
     </Container>

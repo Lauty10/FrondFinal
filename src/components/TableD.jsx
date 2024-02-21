@@ -9,7 +9,9 @@ import axiosUrl, { configToken } from '../helps/axiosBase';
 
 
 
-const TableD = ({data}) => {
+const TableD = ({data,loadUser}) => {
+
+  const{setLoad,load}=loadUser
 
     const [show, setShow] = useState(false);
 
@@ -47,7 +49,7 @@ const TableD = ({data}) => {
             },config)
             if (RockFull.status===200) {
                 alert("Producto Actualizado")
-    
+                setLoad(!load)
             }
         } catch (error) {
             console.log(error)

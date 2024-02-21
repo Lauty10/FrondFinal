@@ -63,7 +63,6 @@ const TableD = ({data}) => {
                 const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,config)
                 if (RockDelete.status===200) {
                     alert("Usuario eliminado correctamente")
-                    location.reload()
                 }
             }
         } catch (error) {

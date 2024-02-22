@@ -70,6 +70,8 @@ const LoginPage = () => {
   const handleShow = () => setShow(true);
 
   const [newpass, setNewPass] = useState({
+    Nombre:'',
+    Nacionalidad:'',
     Correo: '',
     Contrasenia: '',
     ContraseniaR: ''
@@ -84,6 +86,7 @@ const LoginPage = () => {
     try {
       if (newpass.Contrasenia === newpass.ContraseniaR) {
         const passRockNew = await axiosUrl.put(`/usuarios/pass`, {
+          Nombre:newpass.Nombre,
           Correo: newpass.Correo,
           Contrasenia: newpass.Contrasenia,
         })
@@ -175,6 +178,10 @@ const LoginPage = () => {
                 <Modal.Body>
                   <Form>
 
+                  <Form.Group className="mb-3">
+                      <Form.Label>Ingrese su Nombre</Form.Label>
+                      <Form.Control type="text" placeholder="Ingrese su nombre de registro" name='Nombre' value={newpass.Nombre} onChange={handlePass} />
+                    </Form.Group>
 
                     <Form.Group className="mb-3">
                       <Form.Label>Ingrese su email</Form.Label>
@@ -187,7 +194,7 @@ const LoginPage = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                      <Form.Label>Repeti la contraseña</Form.Label>
+                      <Form.Label>Repetir la contraseña</Form.Label>
                       <Form.Control type="password" placeholder="Ingrese la nueva clave" name='ContraseniaR' value={newpass.ContraseniaR} onChange={handlePass} />
                     </Form.Group>
 

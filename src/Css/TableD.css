@@ -24,13 +24,17 @@
     .buttonD{
         margin: 5px;
     }
+
+    .correo-style{
+        display: block;
+    }
     
     @media(max-width:950px){
         
         .buttonD{
             display: flex;
             flex-direction: column;
-            width: 4rem;
+            width: 5rem;
         }
        
         .style-font{
@@ -40,9 +44,18 @@
         
         .font-style{
             font-family: 'Times New Roman', Times, serif;
-            font-size: 25px;
-        }
+            font-size: 15px;
+            overflow-wrap: break-word;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            flex-direction: column;
     
+        }
+
+        
+        .correo-style{
+            display: block;
+        }
         
     }
     
@@ -60,11 +73,16 @@
         
         .font-style{
             font-family: 'Times New Roman', Times, serif;
-            font-size: 13px;
+            font-size: 10px;
             overflow-wrap: break-word;
             margin-top: 10px;
             margin-bottom: 10px;
+            flex-direction: column;
     
+        }
+
+        .correo-style{
+            display: block;
         }
     
     }

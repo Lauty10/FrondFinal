@@ -127,7 +127,7 @@ const TableD = ({data,loadUser}) => {
   {data.map((info)=>(
   <tr key={info._id}>
   <td className='font-style'>{info.Nombre}</td>
-  <td className='font-style '>{info.Correo}</td>
+  <td id='correo-style' className='font-style '>{info.Correo}</td>
   <td className='font-style'>{info.Role}</td>
   <td>
   <>

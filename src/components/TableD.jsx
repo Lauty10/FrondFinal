@@ -114,7 +114,7 @@ const TableD = ({data,loadUser}) => {
 
   return (
     <div className='d-flex justify-content-center body-table'>
-    <Table striped bordered hover className='my-5 w-100 '>
+    <Table striped bordered hover className='my-5 w-25 '>
     <thead>
       <tr>
         <th className='style-font'>Nombre</th>

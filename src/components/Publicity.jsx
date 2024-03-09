@@ -13,13 +13,13 @@ const Publicity = () => {
         <Container>
           <Row>
             <Col className='d-flex justify-content-center align-items-center' sm={"12"} md={"4"} lg={"4"}>
-              <Image className='gif-style' src={Coca} rounded />
+              <Image className='gif-style' alt='Coca-cola-publicity' src={Coca} rounded />
             </Col>
             <Col  className='d-flex justify-content-center align-items-center' sm={"12"} md={"4"} lg={"4"}>
-              <Image className='gif-style' src={Rock} rounded />
+              <Image className='gif-style' alt='Rock-publicity' src={Rock} rounded />
             </Col>
             <Col  className='d-flex justify-content-center align-items-center' sm={"12"} md={"4"} lg={"4"}>
-              <Image className='gif-style' src={Pizza} rounded />
+              <Image className='gif-style' alt='Pizza-publicity' src={Pizza} rounded />
             </Col>
           </Row>
         </Container>

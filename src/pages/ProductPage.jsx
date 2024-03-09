@@ -178,7 +178,7 @@ const carrProduct=async()=>{
             <Figure.Image className='mt-5 d-flex justify-content-center aling-items-center'
               width={450}
               height={550}
-              alt="171x180"
+              alt="product-fullRock"
               src={productos.Imagen}/>
             <Figure.Caption>
               <p className='style-leyend'>Tienda Full Rock</p>

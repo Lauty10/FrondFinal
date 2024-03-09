@@ -21,7 +21,7 @@ const CardC = ({ title, imageUrl, idProduct, idPage, idDelete,userFavLoad,stateU
 
   return (
     <Card id='style-card' className='border-0 mt-5' style={{ width: '18rem' }}>
-      <Card.Img className='img-card' variant="top" src={imageUrl} />
+      <Card.Img className='img-card' variant="top" src={imageUrl} alt='product-Rock' />
       <Card.Body  className='card-body'>
         <Card.Title id='title-id'>{title}</Card.Title>
         {idPage === 'favPage' ? (

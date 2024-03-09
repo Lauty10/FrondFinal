@@ -81,7 +81,7 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
         data.append("Descripcion", Descripcion)
         data.append("Imagen", imagen)
         const createProductRock = await axiosUrl.post("/productos", data);
-        console.log(createProductRock)
+   
         if (createProductRock.status === 200) {
           alert("Producto creado correctamente")
           productSetLoad(!productLoad)
@@ -176,10 +176,13 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
 
   const carrMe = async () => {
     const token = JSON.parse(sessionStorage.getItem("token")) || "";
-    const config = configToken(token)
-    const rockCarrMe = await axiosUrl.get("/carr", config)
-    const rockCarrIndividual = rockCarrMe.data.carrGet.find((data) => data.idUsuario === rockData)
-    setCarrRock(rockCarrIndividual.productos)
+    const role=JSON.parse(sessionStorage.getItem("role"))
+    if (token && role==="user") {
+      const config = configToken(token)
+      const rockCarrMe = await axiosUrl.get("/carr", config)
+      const rockCarrIndividual = rockCarrMe.data.carrGet.find((data) => data.idUsuario === rockData)
+      setCarrRock(rockCarrIndividual.productos)
+    }
   }
 
   useEffect(() => {
@@ -432,16 +435,23 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
               </>
             ) : null}
           </Nav>
-          {token && role ? (
-            <Nav className='ms-auto me-1'>
-              <NavLink to="/#" className='text-rock' onClick={sinOff}>Cerrar Sesion</NavLink>
-            </Nav>
-          ) : (
-            <Nav className="ms-auto me-2">
-              <NavLink to="/register" className='text-rock mt-2 me-2'>Registrarse</NavLink>
-              <NavLink to="/login" className='text-rock mt-2 me-2'>Iniciar Sesion</NavLink>
-            </Nav>
-          )}
+          {token && role === "admin" ? (
+         <Nav className='ms-auto me-1'>
+        <NavLink to="/userAdmin" className='text-rock me-2 panel-rock'>Panel de admin</NavLink>
+         <NavLink to="/#" className='text-rock' onClick={sinOff}>Cerrar Sesion</NavLink>
+         </Nav>
+         ) : token && role === "user" ? (
+        <Nav className="ms-auto me-2">
+       <NavLink to="/#" className='text-rock' onClick={sinOff}>Cerrar Sesion</NavLink>
+      </Nav>
+     ) : !token ? ( 
+      <>
+      <NavLink to="/register" className='text-rock mt-2 me-2'>Registrarse</NavLink>
+      <NavLink to="/login" className='text-rock mt-2 me-2'>Iniciar Sesion</NavLink>
+     </>
+      ) : null}
+
+
         </Navbar.Collapse>
       </Navbar>
     </>

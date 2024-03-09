@@ -46,7 +46,6 @@ const favoriteProduct=async()=>{
     }else{
       const userId =JSON.parse(sessionStorage.getItem('idUsuario'))
       const addUser= await axiosUrl.get(`/usuarios/${userId}`)
-      console.log(addUser);
       if (addUser.status===200) {
         const token=JSON.parse(sessionStorage.getItem("token"))||"";
         const config=configToken(token)
@@ -108,7 +107,6 @@ const carrProduct=async()=>{
     }else{
       const userId =JSON.parse(sessionStorage.getItem('idUsuario'))
       const addUser= await axiosUrl.get(`/usuarios/${userId}`)
-      console.log(addUser);
       if (addUser.status===200) {
         const token=JSON.parse(sessionStorage.getItem("token"))||"";
         const config=configToken(token)

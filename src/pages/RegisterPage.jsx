@@ -138,27 +138,27 @@ RcontraRock.addEventListener('input',RContraRockColor)
          <div className='d-flex justify-content-center mt-5'>
        <Form className='form-style'>
       <h2 className='h2-rock-register'>Registrarse</h2>
-      <Form.Group className="mb-3" controlIdName="NombreInfo">
+      <Form.Group className="mb-3">
          <Form.Label className='register-style'>Nombre</Form.Label>
          <Form.Control id='NameRock' type="text" value={formRegister.Nombre} onChange={registerChange} placeholder="Ingrese su Nombre" name='NombreRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlIdInfo="nacionalidadInfo">
+      <Form.Group className="mb-3">
          <Form.Label className='register-style'>Nacionalidad</Form.Label>
          <Form.Control id='NacionalityRock' type="text" value={formRegister.Nacionalidad} onChange={registerChange} placeholder="Ingrese su nacionalidad" name='NacionalidadRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlIdCorreo="correoInfo">
+      <Form.Group className="mb-3" >
          <Form.Label className='register-style'>Correo Electronico</Form.Label>
          <Form.Control id='EmailRock' type="email" value={formRegister.Correo} onChange={registerChange} placeholder="Ingrese su correo" name='CorreoRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlIdPass="passInfo">
+      <Form.Group className="mb-3">
          <Form.Label className='register-style'>Contraseña</Form.Label>
          <Form.Control id='ContraRock' type="password" value={formRegister.Contrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='ContraseniaRock' />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlIdTwo="rPassInfo">
+      <Form.Group className="mb-3" >
          <Form.Label className='register-style'>Repetir Contraseña</Form.Label>
          <Form.Control id='RcontraRock' type="password" value={formRegister.Rcontrasenia} onChange={registerChange} placeholder="Ingrese una contraseña" name='RcontraseniaRock' />
       </Form.Group>

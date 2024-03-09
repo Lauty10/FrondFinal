@@ -299,14 +299,14 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
           <Nav className="me-auto">
             <div className='style-control'>
             </div>
-            <NavLink to="/" className='text-rock mt-2 me-2'>Inicio</NavLink>
-            <NavLink to="/sobreNosotros" className='text-rock mt-2 me-2'>Sobre mi</NavLink>
-            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock mt-2 me-2'>Contacto</NavLink>
+            <NavLink to="/" className='text-rock mt-3 me-3'>Inicio</NavLink>
+            <NavLink to="/sobreNosotros" className='text-rock mt-3 me-3'>Sobre mi</NavLink>
+            <NavLink to="#" onClick={handleWhatsAppClick} className='text-rock mt-3 me-3'>Contacto</NavLink>
             {token && role === "user" ? (
               <>
-                <NavLink to="/user" className='text-rock mt-2 me-2'>Tienda</NavLink>
-                <NavLink to="/fav" className='text-rock mt-2 me-2'>Favoritos</NavLink>
-                <NavLink onClick={handleShow} className='text-rock mt-2 me-2'>Carrito</NavLink>
+                <NavLink to="/user" className='text-rock mt-3 me-3'>Tienda</NavLink>
+                <NavLink to="/fav" className='text-rock mt-3 me-3'>Favoritos</NavLink>
+                <NavLink onClick={handleShow} className='text-rock mt-3 me-3'>Carrito</NavLink>
                 <Offcanvas show={show} onHide={handleClose}>
                   <Offcanvas.Header closeButton>
                     <Offcanvas.Title id='style-carr-title' className='title-carr-pp justify-content-center aling-items-center'>Carrito Full Rock</Offcanvas.Title>
@@ -342,7 +342,7 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
               </>
             ) : token && role === "admin" && AdminPageProduct == "/admin" ? (
               <>
-                <NavLink to="/userAdmin" className='text-rock mt-2'>Usuarios</NavLink>
+                <NavLink to="/userAdmin" className='text-rock mt-3'>Usuarios</NavLink>
                 <Button className='button-product me-auto' variant="danger" onClick={handleShow}>
                   Crear un producto
                 </Button>
@@ -389,14 +389,14 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
               </>
             ) : token && role === "admin" && AdminPageProduct == "/userAdmin" ? (
               <>
-                <NavLink to="/admin" className='text-rock mt-2'>Productos</NavLink>
-                <Button className='button-product me-auto' onClick={handleShow}>
+                <NavLink to="/admin" className='text-rock mt-3'>Productos</NavLink>
+                <Button className='button-product' onClick={handleShow}>
                   Crear un usuario
                 </Button>
 
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
-                    <Modal.Title >Crear usuario</Modal.Title>
+                    <Modal.Title className='me-2 mt-2'>Crear usuario</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
                     <Form>
@@ -436,18 +436,20 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
             ) : null}
           </Nav>
           {token && role === "admin" ? (
-         <Nav className='ms-auto me-1'>
-        <NavLink to="/userAdmin" className='text-rock me-2 panel-rock'>Panel de admin</NavLink>
-         <NavLink to="/#" className='text-rock' onClick={sinOff}>Cerrar Sesion</NavLink>
+         <Nav className='ms-auto mt-1'>
+        <NavLink to="/userAdmin" className='text-rock me-2 mt-2 panel-rock'>Panel de admin</NavLink>
+         <NavLink to="/#" className='text-rock me-2 mt-2' onClick={sinOff}>Cerrar Sesion</NavLink>
          </Nav>
          ) : token && role === "user" ? (
-        <Nav className="ms-auto me-2">
-       <NavLink to="/#" className='text-rock' onClick={sinOff}>Cerrar Sesion</NavLink>
+        <Nav className="ms-auto me-3">
+       <NavLink to="/#" className='text-rock me-3 mt-3' onClick={sinOff}>Cerrar Sesion</NavLink>
       </Nav>
      ) : !token ? ( 
       <>
-      <NavLink to="/register" className='text-rock mt-2 me-2'>Registrarse</NavLink>
-      <NavLink to="/login" className='text-rock mt-2 me-2'>Iniciar Sesion</NavLink>
+       <Nav className="ms-auto me-2">
+              <NavLink to="/register" className='text-rock mt-3 me-3'>Registrarse</NavLink>
+              <NavLink to="/login" className='text-rock mt-3 me-3'>Iniciar Sesion</NavLink>
+            </Nav>
      </>
       ) : null}
 

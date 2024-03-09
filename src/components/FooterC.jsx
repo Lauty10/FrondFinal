@@ -12,7 +12,7 @@ const FooterC = () => {
     <Container fluid className='footer-color'>
       <Row>
         <Col sm={12} md={3} lg={3} className='text-center'>
-          <img className='footer-style mt-4' src={Logo} alt="Logo-Rock" />
+         <a href="/Error"><img className='footer-style mt-4' src={Logo} alt="Logo-Rock" /></a> 
         </Col>
         <Col sm={12} md={3} lg={3} className='d-flex mt-5 mx-auto flex-column text-center text-md-start'>
         <Link to="/Error" className='me-4 tienda-style rock-tienda'>Tienda, Rock Full</Link>

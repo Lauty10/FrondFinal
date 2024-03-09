@@ -25,7 +25,7 @@ const SobreNosotros = () => {
       <Container className='mt-5 d-flex justify-content-center align-items-center'>
         <Row>
           <Col sm={"12"} md={"12"} lg={"12"}>
-            <Image className='img-yo' src={Yo} roundedCircle />
+            <Image className='img-yo' alt='Lautaro-Maldonado' src={Yo} roundedCircle />
           </Col>
         </Row>
       </Container>

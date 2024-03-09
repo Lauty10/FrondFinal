@@ -27,6 +27,7 @@ const TableC = ({ data,loadUser}) => {
       Nombre: '',
       Marca: '',
       Precio: '',
+      Descripcion:'',
       Imagen: ''
     });
     

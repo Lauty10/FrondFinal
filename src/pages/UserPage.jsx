@@ -82,9 +82,7 @@ useEffect(()=>{
 catalogueAll()
 },[])
 
-useEffect(()=>{
-  console.log(catalogue)
-  },[catalogue])
+
 
   const [open, setOpen] = useState(false);
   const [openTwo, setOpenTwo] = useState(false);

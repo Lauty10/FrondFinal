@@ -81,7 +81,7 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
         data.append("Descripcion", Descripcion)
         data.append("Imagen", imagen)
         const createProductRock = await axiosUrl.post("/productos", data);
-        console.log(createProductRock)
+   
         if (createProductRock.status === 200) {
           alert("Producto creado correctamente")
           productSetLoad(!productLoad)
@@ -176,10 +176,13 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
 
   const carrMe = async () => {
     const token = JSON.parse(sessionStorage.getItem("token")) || "";
-    const config = configToken(token)
-    const rockCarrMe = await axiosUrl.get("/carr", config)
-    const rockCarrIndividual = rockCarrMe.data.carrGet.find((data) => data.idUsuario === rockData)
-    setCarrRock(rockCarrIndividual.productos)
+    const role=JSON.parse(sessionStorage.getItem("role"))
+    if (token && role==="user") {
+      const config = configToken(token)
+      const rockCarrMe = await axiosUrl.get("/carr", config)
+      const rockCarrIndividual = rockCarrMe.data.carrGet.find((data) => data.idUsuario === rockData)
+      setCarrRock(rockCarrIndividual.productos)
+    }
   }
 
   useEffect(() => {

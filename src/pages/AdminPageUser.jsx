@@ -23,7 +23,7 @@ const AdminPageUser = () => {
   },[load])
 
   return (
-    <div className='style-table'>
+    <div className='style-table mx-auto'>
     <>
     <NavbarC userRockLoad={load} userSetRock={setLoad}/>
     <Container>

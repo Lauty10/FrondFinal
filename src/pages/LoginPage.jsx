@@ -154,7 +154,7 @@ const LoginPage = () => {
       <div className='login-fondo'>
         <NavbarC />
         <div className='d-flex justify-content-center my-5'>
-          <Form className='mt-5 mb-5 style-form'>
+          <Form className='style-form'>
             <h2 className='h2-rock-login'>Iniciar Sesion</h2>
             <Form.Group className="mb-3" >
               <Form.Label className='text-style-login' >Correo</Form.Label>
@@ -168,7 +168,7 @@ const LoginPage = () => {
 
             <div className='d-flex justify-content-center'>
               <Button className='pass-rock' onClick={handleShow}>
-                Haz olvidado tu contraseña? Restablecer contraseña
+                Olvidaste tu clave? Restablecer clave
               </Button>
 
               <Modal show={show} onHide={handleClose}>
@@ -206,13 +206,13 @@ const LoginPage = () => {
               </Modal>
             </div>
 
-            <Button id='sessionLogin' className='button-style mt-3 mb-5 mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
+            <Button id='sessionLogin' className='button-style mt-4 mb-5 mx-auto w-75' onClick={loginRockUser} variant="danger" type="submit">
               Iniciar Sesion
             </Button>
           </Form>
         </div>
       </div>
-      <FooterC />
+      <FooterC/>
     </>
   )
 }

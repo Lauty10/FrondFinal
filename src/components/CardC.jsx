@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import "../Css/CardC.css"
 import { Link } from 'react-router-dom';
 import axiosUrl, { configToken } from '../helps/axiosBase';
+import Swal from 'sweetalert2'
 
 
 
@@ -14,7 +15,11 @@ const CardC = ({ title, imageUrl, idProduct, idPage, idDelete,userFavLoad,stateU
     const config=configToken(token)
     const deleteProduct=await axiosUrl.delete(`/fav/${id}`,config)
     if (deleteProduct.status===200) {
-      alert("Producto eliminado de favoritos")
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminado',
+        text: "El producto se elimino correctamente"
+      });
       stateUserFav(!userFavLoad)
     }
   }

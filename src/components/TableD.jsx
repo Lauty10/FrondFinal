@@ -49,7 +49,11 @@ const TableD = ({data,loadUser}) => {
                 Role:edit.Role
             },config)
             if (RockFull.status===200) {
-                alert("Producto Actualizado")
+              Swal.fire({
+                icon: 'success',
+                title: 'Producto actualizado',
+                text: "El producto se actualizo correctamente"
+              });
                 setLoad(!load)
             }
         } catch (error) {
@@ -84,7 +88,11 @@ const TableD = ({data,loadUser}) => {
               const config=configToken(token)
                 const RockDelete=await axiosUrl.delete(`/usuarios/${id}`,config)
                 if (RockDelete.status===200) {
-                    alert("Usuario eliminado correctamente")
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Eliminado',
+                    text: "El producto se elimino correctamente"
+                  });
                     setLoad(!load)
                 }
             }

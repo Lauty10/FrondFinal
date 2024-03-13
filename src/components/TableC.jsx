@@ -53,7 +53,11 @@ const TableC = ({ data,loadUser}) => {
         },config);
     
         if (sendPost.status === 200) {
-          alert("Producto actualizado");
+          Swal.fire({
+            icon: 'success',
+            title: 'Producto actualizado',
+            text: "El producto se actualizo correctamente "
+          });
           setLoad(!load)
         }
       } catch (error) {
@@ -88,7 +92,11 @@ const TableC = ({ data,loadUser}) => {
         const config=configToken(token)
         const rockDelete= await axiosUrl.delete(`/productos/${id}`,config)
         if (rockDelete.status===200) {
-          alert("Producto eliminado correctamente")
+          Swal.fire({
+            icon: 'success',
+            title: 'Eliminado',
+            text: "El producto se elimino correctamente"
+          });
           setLoad(!load)
         }
       }

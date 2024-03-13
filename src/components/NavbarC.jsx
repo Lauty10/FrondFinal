@@ -71,7 +71,11 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
     try {
       const { Nombre, Marca, Precio, Descripcion } = newProduct
       if (!Nombre || !Marca || !Precio || !Descripcion || !imagen) {
-        alert("Por favor complete todos los campos!")
+ Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: "Por favor complete todos los campos"
+      });
         return
       } else {
         const data = new FormData();
@@ -83,7 +87,11 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
         const createProductRock = await axiosUrl.post("/productos", data);
    
         if (createProductRock.status === 200) {
-          alert("Producto creado correctamente")
+          Swal.fire({
+            icon: 'success',
+            title: 'Producto creado',
+            text: "El producto se creo correctamente"
+          });
           productSetLoad(!productLoad)
 
         }
@@ -131,7 +139,11 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
     try {
       const { Nombre, Nacionalidad, Role, Contrasenia, Correo } = newUser
       if (!Nombre || !Nacionalidad || !Role || !Contrasenia || !Correo) {
-        alert("Completa todos los campos")
+        Swal.fire({
+          icon: 'error',
+          title: 'Complete todos los campos',
+          text: "Por favor complete todos los campos"
+        });
         return
       } else {
         const token = JSON.parse(sessionStorage.getItem("token")) || "";
@@ -144,7 +156,11 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
           Contrasenia: newUser.Contrasenia
         }, config)
         if (createUserRock.status === 200) {
-          alert("Usuario creado correctamente")
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuario creado',
+            text: "El usuario se creo correctamente"
+          });
           userSetRock(!userRockLoad)
         }
       }
@@ -253,7 +269,11 @@ const NavbarC = ({ loadRock, productLoad, productSetLoad, userRockLoad, userSetR
         const config = configToken(token)
         const rockDelte = await axiosUrl.delete(`/carr/${id}`, config)
         if (rockDelte.status === 200) {
-          alert("Producto eliminado")
+          Swal.fire({
+            icon: 'error',
+            title: 'Producto eliminado correctamente',
+            text: "El producto se elimino correctamente"
+          });
           SetLoadNav(!loadNav)
         }
       }
